@@ -1134,7 +1134,7 @@ function Footer() {
           <br />
           Avenida Félix Mendonça, 696 - Andar 1 - Góes Calmon - Itabuna, BA - CEP 45605-351
         </p>
-        <div>
+        <div className="footer-group">
           <span>Uma empresa do grupo:</span>
           <img src={infinitasLogo} alt="Infinitas Possibilidades" />
         </div>

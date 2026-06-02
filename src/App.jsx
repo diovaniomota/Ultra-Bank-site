@@ -1136,7 +1136,9 @@ function Footer() {
         </p>
         <div className="footer-group">
           <span>Uma empresa do grupo:</span>
-          <img src={infinitasLogo} alt="Infinitas Possibilidades" />
+          <div className="footer-logo-box">
+            <img src={infinitasLogo} alt="Infinitas Possibilidades" />
+          </div>
         </div>
       </div>
     </footer>

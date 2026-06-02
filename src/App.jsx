@@ -8,13 +8,16 @@ import {
   CheckCircle2,
   ChevronRight,
   CreditCard,
+  FileText,
   Gift,
   HandCoins,
   Headphones,
   HousePlug,
   Landmark,
+  LockKeyhole,
   PlayCircle,
   Router,
+  Scale,
   ShieldCheck,
   ShoppingBag,
   Smartphone,
@@ -181,6 +184,302 @@ const values = [
   'Conexão com o futuro',
 ];
 
+const transparencyLinks = [
+  { label: 'Política de privacidade', path: '/politica-de-privacidade' },
+  { label: 'Contratos e termos', path: '/contratos-e-termos' },
+  { label: 'Segurança', path: '/seguranca' },
+];
+
+const supportLinks = [
+  { label: 'Me ajuda', path: '/me-ajuda', icon: Headphones },
+  { label: 'Fale com a gente', path: '/fale-com-a-gente' },
+  { label: 'Ouvidoria', path: '/ouvidoria' },
+  { label: 'Dúvidas frequentes', path: '/duvidas-frequentes' },
+];
+
+const transparencyPages = {
+  privacy: {
+    icon: FileText,
+    eyebrow: 'Transparência',
+    title: 'Política de privacidade',
+    intro:
+      'Entenda como o Ultra Bank trata dados pessoais nos canais digitais, nas solicitações de atendimento e na contratação de produtos e serviços.',
+    sections: [
+      {
+        title: 'Dados que podemos tratar',
+        paragraphs: [
+          'Podemos tratar dados cadastrais, documentos, informações de contato, dados de navegação, registros de atendimento e informações necessárias para análise, contratação e suporte dos serviços solicitados.',
+          'Quando o cliente contrata soluções financeiras, de conectividade, energia, consórcio ou benefícios, também podemos registrar informações relacionadas ao produto escolhido e ao histórico de relacionamento.',
+        ],
+      },
+      {
+        title: 'Como usamos as informações',
+        paragraphs: [
+          'Utilizamos os dados para identificar o cliente, responder solicitações, executar contratos, prevenir fraudes, cumprir obrigações legais e melhorar a experiência nos canais da Ultra.',
+          'Comunicações comerciais podem ser enviadas para apresentar produtos, vantagens e atualizações do ecossistema, respeitando as preferências de contato informadas pelo cliente.',
+        ],
+      },
+      {
+        title: 'Compartilhamento e proteção',
+        paragraphs: [
+          'O compartilhamento ocorre apenas quando necessário para operação dos serviços, cumprimento regulatório, prevenção de riscos, suporte técnico ou integração com parceiros envolvidos na jornada contratada.',
+          'Aplicamos controles técnicos e administrativos para proteger os dados contra acessos indevidos, perdas, alterações e usos incompatíveis com as finalidades informadas.',
+        ],
+      },
+      {
+        title: 'Direitos do titular',
+        paragraphs: [
+          'O titular pode solicitar confirmação de tratamento, acesso, correção, portabilidade, revisão de decisões automatizadas, informações sobre compartilhamento e eliminação de dados, conforme a legislação aplicável.',
+          'As solicitações são avaliadas pelos canais oficiais de atendimento e podem depender de validação de identidade para proteger o próprio titular.',
+        ],
+      },
+    ],
+    commitments: ['Tratamento com finalidade clara', 'Acesso restrito aos dados', 'Canais para solicitações LGPD'],
+  },
+  terms: {
+    icon: Scale,
+    eyebrow: 'Transparência',
+    title: 'Contratos e termos',
+    intro:
+      'Consulte as condições gerais de uso dos canais digitais e os princípios que orientam a contratação dos produtos e serviços do ecossistema Ultra.',
+    sections: [
+      {
+        title: 'Uso dos canais digitais',
+        paragraphs: [
+          'Os canais digitais da Ultra devem ser utilizados com informações verdadeiras, dispositivos seguros e respeito às regras de cadastro, autenticação e atendimento.',
+          'O cliente é responsável pela guarda de senhas, códigos de acesso e informações usadas para validar operações ou solicitações realizadas em seu nome.',
+        ],
+      },
+      {
+        title: 'Contratação de produtos',
+        paragraphs: [
+          'Cada produto pode possuir condições comerciais, prazos, elegibilidade, cobertura, disponibilidade regional e documentação própria, apresentada antes da contratação.',
+          'Propostas, simulações e benefícios podem variar conforme análise cadastral, parceiro operacional, campanha vigente e regras do serviço escolhido.',
+        ],
+      },
+      {
+        title: 'Responsabilidades',
+        paragraphs: [
+          'A Ultra atua para manter informações claras, atendimento adequado e funcionamento contínuo dos canais, observadas manutenções, integrações de parceiros e eventos fora de controle operacional.',
+          'O cliente deve acompanhar as comunicações oficiais, manter seus dados atualizados e comunicar rapidamente qualquer suspeita de acesso indevido.',
+        ],
+      },
+      {
+        title: 'Atualizações dos termos',
+        paragraphs: [
+          'Os termos podem ser atualizados para refletir mudanças legais, regulatórias, operacionais ou comerciais. Alterações relevantes serão comunicadas pelos canais disponíveis.',
+          'Contratos específicos, propostas aceitas e documentos assinados prevalecem sobre esta página resumida sempre que tratarem do mesmo produto ou serviço.',
+        ],
+      },
+    ],
+    commitments: ['Condições antes da contratação', 'Regras por produto ou serviço', 'Comunicação de mudanças relevantes'],
+  },
+  security: {
+    icon: LockKeyhole,
+    eyebrow: 'Transparência',
+    title: 'Segurança',
+    intro:
+      'Veja como o Ultra Bank orienta o uso seguro dos canais digitais e quais cuidados ajudam a proteger sua conta, seus dados e suas contratações.',
+    sections: [
+      {
+        title: 'Proteção nos canais digitais',
+        paragraphs: [
+          'Utilizamos camadas de controle para autenticação, monitoramento de riscos, prevenção a fraudes e proteção de dados durante o acesso aos canais digitais.',
+          'Operações sensíveis podem exigir validações adicionais para confirmar a identidade do cliente e reduzir tentativas de uso indevido.',
+        ],
+      },
+      {
+        title: 'Cuidados do cliente',
+        paragraphs: [
+          'Nunca compartilhe senhas, códigos, tokens, links de acesso ou fotos de documentos por canais não oficiais. A Ultra não solicita dados sigilosos por mensagens inesperadas.',
+          'Mantenha seus dispositivos atualizados, use senhas fortes e confira sempre se está acessando canais e contatos oficiais antes de informar dados pessoais.',
+        ],
+      },
+      {
+        title: 'Golpes e comunicações suspeitas',
+        paragraphs: [
+          'Desconfie de promessas urgentes, ofertas fora do padrão, pedidos de pagamento antecipado ou mensagens que pressionem você a agir sem conferir as informações.',
+          'Ao identificar qualquer tentativa suspeita, interrompa o contato e procure imediatamente o atendimento oficial para orientação.',
+        ],
+      },
+      {
+        title: 'Suporte e bloqueios preventivos',
+        paragraphs: [
+          'Em caso de perda de dispositivo, suspeita de fraude ou acesso desconhecido, solicite suporte para análise, orientação e eventual bloqueio preventivo dos canais afetados.',
+          'Quanto mais rápido o contato, maior a capacidade de reduzir riscos e preservar a segurança da sua experiência com a Ultra.',
+        ],
+      },
+    ],
+    commitments: ['Validações em operações sensíveis', 'Monitoramento de acessos suspeitos', 'Orientação contra golpes digitais'],
+  },
+};
+
+const supportPages = {
+  help: {
+    icon: Headphones,
+    eyebrow: 'Atendimento',
+    title: 'Me ajuda',
+    intro:
+      'Encontre orientações para resolver dúvidas de acesso, acompanhar solicitações e usar os serviços do Ultra Bank com mais tranquilidade.',
+    sections: [
+      {
+        title: 'Acesso e conta',
+        paragraphs: [
+          'Se você precisa de ajuda para acessar sua conta, atualizar dados cadastrais ou entender uma etapa de validação, reúna seus documentos e procure os canais oficiais da Ultra.',
+          'Para proteger sua segurança, algumas solicitações podem exigir confirmação de identidade antes de qualquer alteração cadastral ou liberação de acesso.',
+        ],
+      },
+      {
+        title: 'Produtos e serviços',
+        paragraphs: [
+          'O atendimento também orienta sobre conta digital, cartão, planos móveis, internet, TV, energia solar, consórcio, marketplace e benefícios do Ultra Club.',
+          'Ao entrar em contato, informe o serviço desejado e descreva o que aconteceu para que o direcionamento seja mais rápido e preciso.',
+        ],
+      },
+      {
+        title: 'Acompanhamento de solicitações',
+        paragraphs: [
+          'Pedidos de contratação, análise, suporte técnico ou atualização de dados podem ser acompanhados pelos canais digitais informados durante o atendimento.',
+          'Guarde protocolos, mensagens e comprovantes relacionados à sua solicitação. Eles ajudam a localizar o histórico e acelerar novas interações.',
+        ],
+      },
+      {
+        title: 'Atendimento seguro',
+        paragraphs: [
+          'A Ultra não solicita senhas, códigos de autenticação ou dados sigilosos por contatos inesperados. Desconfie de mensagens com urgência exagerada ou links desconhecidos.',
+          'Quando tiver dúvida sobre a origem de um contato, interrompa a conversa e retome o atendimento pelos canais oficiais.',
+        ],
+      },
+    ],
+    commitments: ['Orientação para acesso e cadastro', 'Suporte por tipo de serviço', 'Atendimento com validação segura'],
+  },
+  contact: {
+    icon: Smartphone,
+    eyebrow: 'Atendimento',
+    title: 'Fale com a gente',
+    intro:
+      'Use este canal para iniciar uma conversa com a Ultra, tirar dúvidas comerciais, solicitar suporte ou receber orientação sobre produtos e serviços.',
+    sections: [
+      {
+        title: 'Antes de entrar em contato',
+        paragraphs: [
+          'Tenha em mãos nome completo, CPF ou CNPJ, e-mail, telefone e informações sobre o serviço que você quer contratar ou sobre a solicitação em andamento.',
+          'Se o assunto envolver uma compra, cobrança, contrato ou atendimento anterior, inclua o protocolo ou qualquer comprovante disponível.',
+        ],
+      },
+      {
+        title: 'Assuntos atendidos',
+        paragraphs: [
+          'Você pode buscar orientação sobre abertura de conta, planos móveis, fibra e TV, energia solar, consórcio, benefícios, marketplace e dúvidas institucionais.',
+          'Demandas sensíveis, como suspeita de fraude ou acesso indevido, devem ser informadas com prioridade para que o time avalie medidas preventivas.',
+        ],
+      },
+      {
+        title: 'Retorno da equipe',
+        paragraphs: [
+          'As solicitações são analisadas conforme o tipo de assunto, complexidade e necessidade de validação de identidade ou consulta a parceiros operacionais.',
+          'A Ultra poderá retornar pelos dados de contato cadastrados ou informados na solicitação, sempre evitando pedir informações sigilosas fora de canais seguros.',
+        ],
+      },
+      {
+        title: 'Depois do atendimento',
+        paragraphs: [
+          'Acompanhe o status da sua solicitação e mantenha seus dados atualizados para receber avisos, confirmações e orientações de continuidade.',
+          'Se a resposta recebida não resolver o problema, registre o protocolo e consulte a Ouvidoria quando o caso atender aos critérios desse canal.',
+        ],
+      },
+    ],
+    commitments: ['Triagem por assunto', 'Retorno pelos canais informados', 'Registro do histórico de atendimento'],
+  },
+  ombudsman: {
+    icon: ShieldCheck,
+    eyebrow: 'Atendimento',
+    title: 'Ouvidoria',
+    intro:
+      'A Ouvidoria é o canal para reavaliar manifestações que já passaram pelo atendimento inicial e ainda precisam de uma análise mais aprofundada.',
+    sections: [
+      {
+        title: 'Quando acionar',
+        paragraphs: [
+          'Acione a Ouvidoria quando você já tiver buscado atendimento, recebido uma resposta ou aguardado o prazo informado, mas considerar que a solução não foi adequada.',
+          'Esse canal é indicado para reclamações, reavaliações, apontamentos recorrentes e situações que exigem uma revisão independente do atendimento inicial.',
+        ],
+      },
+      {
+        title: 'O que informar',
+        paragraphs: [
+          'Informe seus dados de identificação, o produto ou serviço envolvido, o protocolo anterior e um resumo objetivo do que aconteceu.',
+          'Também é útil anexar comprovantes, mensagens, datas e qualquer evidência que ajude a compreender o histórico da manifestação.',
+        ],
+      },
+      {
+        title: 'Análise da manifestação',
+        paragraphs: [
+          'A Ouvidoria avalia o histórico, consulta áreas responsáveis e busca uma resposta clara sobre o caso apresentado.',
+          'Quando a manifestação envolver parceiros, integrações ou documentos adicionais, o retorno pode depender de validações complementares.',
+        ],
+      },
+      {
+        title: 'Compromisso de resposta',
+        paragraphs: [
+          'O objetivo da Ouvidoria é oferecer uma resposta conclusiva, transparente e compatível com as regras do serviço contratado.',
+          'Guarde o número de protocolo e acompanhe as comunicações oficiais até o encerramento da análise.',
+        ],
+      },
+    ],
+    commitments: ['Revisão de casos já atendidos', 'Análise com histórico e protocolo', 'Resposta clara sobre a manifestação'],
+  },
+  faq: {
+    icon: FileText,
+    eyebrow: 'Atendimento',
+    title: 'Dúvidas frequentes',
+    intro:
+      'Veja respostas rápidas para perguntas comuns sobre contratação, cadastro, segurança e uso dos produtos do ecossistema Ultra Bank.',
+    sections: [
+      {
+        title: 'Como abrir minha conta?',
+        paragraphs: [
+          'Você pode iniciar a solicitação pelos formulários do site, informando seus dados básicos e o serviço de interesse.',
+          'Após o envio, a Ultra orienta as próximas etapas de validação, análise cadastral e ativação conforme o produto solicitado.',
+        ],
+      },
+      {
+        title: 'Quais serviços posso contratar?',
+        paragraphs: [
+          'O ecossistema reúne conta digital, cartão, planos móveis, fibra e TV, energia solar, consórcio, marketplace, benefícios e outras soluções conectadas.',
+          'A disponibilidade pode variar conforme análise, região, cobertura, campanha comercial e regras de parceiros operacionais.',
+        ],
+      },
+      {
+        title: 'Como acompanhar uma solicitação?',
+        paragraphs: [
+          'Use os canais de atendimento e informe os dados cadastrados, o serviço solicitado e o protocolo recebido, quando houver.',
+          'Se você ainda não recebeu protocolo, descreva a data do envio e os dados usados no formulário para facilitar a localização do atendimento.',
+        ],
+      },
+      {
+        title: 'Como me proteger de golpes?',
+        paragraphs: [
+          'Nunca compartilhe senhas, códigos, tokens ou links de acesso. Confirme a origem de mensagens antes de clicar, responder ou enviar documentos.',
+          'Em caso de suspeita, pare a conversa e procure imediatamente os canais oficiais da Ultra para receber orientação.',
+        ],
+      },
+    ],
+    commitments: ['Respostas rápidas por assunto', 'Orientação sobre contratação', 'Cuidados de segurança digital'],
+  },
+};
+
+const pageRoutes = {
+  '/sobre': 'sobre',
+  '/me-ajuda': 'help',
+  '/fale-com-a-gente': 'contact',
+  '/ouvidoria': 'ombudsman',
+  '/duvidas-frequentes': 'faq',
+  '/politica-de-privacidade': 'privacy',
+  '/contratos-e-termos': 'terms',
+  '/seguranca': 'security',
+};
+
 const formOptions = {
   movel: {
     label: 'Plano Móvel',
@@ -219,13 +518,24 @@ const formOptions = {
 };
 
 function getCurrentPage() {
-  return window.location.pathname === '/sobre' ? 'sobre' : 'home';
+  const path = window.location.pathname.replace(/\/$/, '') || '/';
+  return pageRoutes[path] ?? 'home';
 }
 
 function navigateTo(path) {
   window.history.pushState({}, '', path);
   window.dispatchEvent(new PopStateEvent('popstate'));
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const [, hash] = path.split('#');
+
+  window.requestAnimationFrame(() => {
+    if (hash) {
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }
 
 function App() {
@@ -233,6 +543,8 @@ function App() {
   const [page, setPage] = useState(getCurrentPage);
   const selectedForm = formOptions[formType];
   const isAboutPage = page === 'sobre';
+  const contentPage = supportPages[page] ?? transparencyPages[page];
+  const isInternalPage = page !== 'home';
 
   useEffect(() => {
     const syncPage = () => setPage(getCurrentPage());
@@ -242,10 +554,12 @@ function App() {
 
   return (
     <>
-      <Header isAboutPage={isAboutPage} />
+      <Header isInternalPage={isInternalPage} />
 
       {isAboutPage ? (
         <AboutPage />
+      ) : contentPage ? (
+        <TransparencyPage pageData={contentPage} />
       ) : (
         <HomePage formType={formType} selectedForm={selectedForm} setFormType={setFormType} />
       )}
@@ -255,7 +569,7 @@ function App() {
   );
 }
 
-function Header({ isAboutPage }) {
+function Header({ isInternalPage }) {
   return (
     <header className="site-header">
       <button className="brand-link" type="button" onClick={() => navigateTo('/')}>
@@ -265,13 +579,13 @@ function Header({ isAboutPage }) {
       <nav className="main-nav" aria-label="Navegação principal">
         {navItems.map((item) => (
           <a
-            href={isAboutPage ? '/' : item.href}
+            href={isInternalPage ? `/${item.href}` : item.href}
             key={item.label}
             onClick={
-              isAboutPage
+              isInternalPage
                 ? (event) => {
                     event.preventDefault();
-                    navigateTo('/');
+                    navigateTo(`/${item.href}`);
                   }
                 : undefined
             }
@@ -285,9 +599,32 @@ function Header({ isAboutPage }) {
       </nav>
 
       <div className="header-actions">
-        <a href="#suporte">Atendimento</a>
-        <a className="header-cta" href={isAboutPage ? '/' : '#contratacao'}>
-          {isAboutPage ? 'Voltar para home' : 'Abrir conta'}
+        <a
+          href={isInternalPage ? '/#suporte' : '#suporte'}
+          onClick={
+            isInternalPage
+              ? (event) => {
+                  event.preventDefault();
+                  navigateTo('/#suporte');
+                }
+              : undefined
+          }
+        >
+          Atendimento
+        </a>
+        <a
+          className="header-cta"
+          href={isInternalPage ? '/' : '#contratacao'}
+          onClick={
+            isInternalPage
+              ? (event) => {
+                  event.preventDefault();
+                  navigateTo('/');
+                }
+              : undefined
+          }
+        >
+          {isInternalPage ? 'Voltar para home' : 'Abrir conta'}
         </a>
       </div>
     </header>
@@ -643,6 +980,69 @@ function AboutPage() {
   );
 }
 
+function TransparencyPage({ pageData }) {
+  const Icon = pageData.icon;
+
+  return (
+    <main>
+      <section className="about-hero transparency-hero">
+        <div>
+          <span className="eyebrow">{pageData.eyebrow}</span>
+          <h1>{pageData.title}</h1>
+          <p>{pageData.intro}</p>
+        </div>
+      </section>
+
+      <section className="section about-grid transparency-grid">
+        <div className="about-main">
+          {pageData.sections.map((section) => (
+            <article className="about-card transparency-card" key={section.title}>
+              <h2>{section.title}</h2>
+              {section.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </article>
+          ))}
+        </div>
+
+        <aside className="about-side">
+          <article className="about-card transparency-summary">
+            <Icon size={28} />
+            <h2>Compromissos</h2>
+            <ul>
+              {pageData.commitments.map((commitment) => (
+                <li key={commitment}>
+                  <CheckCircle2 size={18} />
+                  {commitment}
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="about-card promise-card">
+            <span className="eyebrow">Canais oficiais</span>
+            <h3>Fale com a Ultra antes de informar dados ou confirmar uma solicitação.</h3>
+            <div>
+              <span>
+                <Headphones size={18} />
+                Atendimento digital
+              </span>
+              <span>
+                <ShieldCheck size={18} />
+                Validação de identidade
+              </span>
+              <span>
+                <Building2 size={18} />
+                Ultra Negócios Financeiros e Empresariais LTDA
+              </span>
+            </div>
+          </article>
+        </aside>
+      </section>
+    </main>
+  );
+}
+
 function Footer() {
   return (
     <footer id="suporte">
@@ -660,35 +1060,79 @@ function Footer() {
           <button type="button" onClick={() => navigateTo('/sobre')}>
             O Ultra Bank
           </button>
-          <a href="#solucoes">Soluções</a>
-          <a href="#planos">Planos</a>
-          <a href="#beneficios">Benefícios</a>
+          <a
+            href="/#solucoes"
+            onClick={(event) => {
+              event.preventDefault();
+              navigateTo('/#solucoes');
+            }}
+          >
+            Soluções
+          </a>
+          <a
+            href="/#planos"
+            onClick={(event) => {
+              event.preventDefault();
+              navigateTo('/#planos');
+            }}
+          >
+            Planos
+          </a>
+          <a
+            href="/#beneficios"
+            onClick={(event) => {
+              event.preventDefault();
+              navigateTo('/#beneficios');
+            }}
+          >
+            Benefícios
+          </a>
         </div>
 
         <div className="footer-links">
           <h4>Atendimento</h4>
-          <a href="#">
-            <Headphones size={16} />
-            Me ajuda
-          </a>
-          <a href="#">Fale com a gente</a>
-          <a href="#">Ouvidoria</a>
-          <a href="#">Dúvidas frequentes</a>
+          {supportLinks.map((link) => {
+            const Icon = link.icon;
+
+            return (
+              <a
+                href={link.path}
+                key={link.path}
+                onClick={(event) => {
+                  event.preventDefault();
+                  navigateTo(link.path);
+                }}
+              >
+                {Icon ? <Icon size={16} /> : null}
+                {link.label}
+              </a>
+            );
+          })}
         </div>
 
         <div className="footer-links">
           <h4>Transparência</h4>
-          <a href="#">Política de privacidade</a>
-          <a href="#">Contratos e termos</a>
-          <a href="#">Segurança</a>
+          {transparencyLinks.map((link) => (
+            <a
+              href={link.path}
+              key={link.path}
+              onClick={(event) => {
+                event.preventDefault();
+                navigateTo(link.path);
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       </div>
 
       <div className="footer-bottom">
         <p>
-          <strong>Ultra Bank S.A.</strong> - CNPJ: 00.000.000/0001-00
+          <strong>Ultra Negócios Financeiros e Empresariais LTDA</strong> - CNPJ:
+          53.635.395/0001-65
           <br />
-          Avenida Faria Lima, 1000 - São Paulo, SP - CEP 01234-567
+          Avenida Félix Mendonça, 696 - Andar 1 - Góes Calmon - Itabuna, BA - CEP 45605-351
         </p>
         <div>
           <span>Uma empresa do grupo:</span>

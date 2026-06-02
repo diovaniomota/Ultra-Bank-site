@@ -914,6 +914,34 @@ h3 {
   margin-bottom: 18px;
 }
 
+.transparency-card h2 {
+  font-size: 2rem;
+  line-height: 1.16;
+}
+
+.transparency-card p + p {
+  margin-top: 10px;
+}
+
+.transparency-summary {
+  position: sticky;
+  top: 112px;
+}
+
+.transparency-summary > svg {
+  background: var(--mint);
+  border-radius: 8px;
+  box-sizing: content-box;
+  color: var(--teal);
+  padding: 10px;
+}
+
+.transparency-summary h2 {
+  font-size: 1.7rem;
+  line-height: 1.16;
+  margin: 18px 0 16px;
+}
+
 footer {
   background: #07111f;
   color: var(--white);
@@ -1016,6 +1044,10 @@ footer {
   .contract-section,
   .about-grid {
     grid-template-columns: 1fr;
+  }
+
+  .transparency-summary {
+    position: static;
   }
 }
 

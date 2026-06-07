@@ -515,7 +515,8 @@ h3 {
 .feature-card p,
 .solution-card p,
 .extra-services p,
-.plan-card p,
+.plan-summary,
+.plan-note,
 .benefit-card p {
   color: var(--muted);
   font-weight: 650;
@@ -568,13 +569,15 @@ h3 {
 }
 
 .plans-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .plan-card {
   display: flex;
   flex-direction: column;
-  min-height: 430px;
+  min-height: 480px;
+  overflow: hidden;
+  padding: 0;
 }
 
 .plan-card.featured {
@@ -583,6 +586,13 @@ h3 {
   color: var(--white);
   box-shadow: 0 24px 58px rgba(8, 23, 44, 0.28);
   transform: translateY(-10px);
+}
+
+.plan-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 24px 24px 0;
 }
 
 .plan-badge {
@@ -603,7 +613,8 @@ h3 {
 
 .plan-card h3 {
   color: var(--navy);
-  font-size: 2.55rem;
+  font-size: 2.2rem;
+  line-height: 1;
   margin-bottom: 4px;
 }
 
@@ -611,6 +622,10 @@ h3 {
 .featured .price-row,
 .featured p {
   color: var(--white);
+}
+
+.plan-summary {
+  min-height: 72px;
 }
 
 .featured li {
@@ -673,7 +688,7 @@ h3 {
   color: var(--lime);
 }
 
-.plan-card p {
+.plan-note {
   font-size: 0.86rem;
   margin-top: auto;
   min-height: 42px;
@@ -688,10 +703,10 @@ h3 {
   font-weight: 850;
   gap: 8px;
   justify-content: center;
-  margin-top: 18px;
+  margin: 18px 24px 24px;
   min-height: 44px;
   padding: 0 16px;
-  width: 100%;
+  width: calc(100% - 48px);
 }
 
 .plan-card.featured a {

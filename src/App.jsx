@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
   ArrowRight,
-  BadgePercent,
   Building2,
   CalendarCheck,
   Car,
@@ -41,14 +40,14 @@ const navItems = [
 ];
 
 const heroHighlights = [
-  { icon: ShieldCheck, label: 'Conta segura' },
-  { icon: CreditCard, label: 'Cartão sem anuidade' },
-  { icon: BadgePercent, label: 'Cashback e pontos' },
+  { icon: Wifi, label: 'Fibra 600MB' },
+  { icon: PlayCircle, label: 'TV 60 canais' },
+  { icon: ShieldCheck, label: 'Conexão estável' },
 ];
 
 const quickLinks = [
   ['Conta digital', WalletCards],
-  ['Ultra Móvel', Smartphone],
+  ['Ultra Connect', Wifi],
   ['Fibra e TV', Wifi],
   ['Energia Solar', Sun],
   ['Consórcio', Car],
@@ -63,16 +62,16 @@ const accountFeatures = [
 
 const solutions = [
   {
-    icon: Smartphone,
-    eyebrow: 'Celular',
-    title: 'Ultra Móvel',
-    text: 'Planos com internet, apps inclusos, chip grátis e gestão no app.',
+    icon: Wifi,
+    eyebrow: 'Fibra',
+    title: 'Ultra Connect',
+    text: 'Conexão essencial com 600MB de internet na fibra e estabilidade para toda a casa.',
   },
   {
     icon: Wifi,
-    eyebrow: 'Casa',
-    title: 'Fibra + TV',
-    text: 'Conectividade estável e entretenimento para trabalho, estudo e família.',
+    eyebrow: 'Internet + entretenimento',
+    title: 'Ultra Experience',
+    text: 'Fibra 600MB, TV com 60 canais e canais como Sportv, Premiere e Telecine.',
   },
   {
     icon: Sun,
@@ -97,37 +96,32 @@ const extraServices = [
 
 const plans = [
   {
-    badge: 'Entrada',
-    title: '20GB',
-    price: '39',
+    badge: 'Conexão essencial',
+    title: 'Ultra Connect',
+    summary: '600MB de internet na fibra para uma casa mais rápida e estável.',
+    price: '89',
     cents: ',90',
-    note: 'No 1º mês. Após, R$ 49,90',
-    apps: ['WhatsApp', 'Redes sociais'],
+    note: 'Taxa de serviço. Consulte disponibilidade técnica.',
+    apps: ['Internet na fibra 600MB', 'Ideal para streaming e jogos', 'Conexão estável para toda a casa'],
   },
   {
-    badge: 'Mais escolhido',
-    title: '50GB',
-    price: '59',
+    badge: 'Experiência completa',
+    title: 'Ultra Experience',
+    summary: 'Internet 600MB com entretenimento completo para toda a família.',
+    price: '119',
     cents: ',90',
-    note: 'No 1º mês. Após, R$ 79,90',
-    apps: ['WhatsApp', 'Streaming'],
+    note: 'Canais e serviços sujeitos a alteração sem aviso prévio.',
+    apps: ['Internet na fibra 600MB', 'TV com 60 canais', 'Inclui Sportv, Premiere e Telecine'],
     featured: true,
   },
   {
-    badge: 'Completo',
-    title: '100GB',
-    price: '89',
+    badge: 'Crescimento e visibilidade',
+    title: 'Ultra Experience Negócios',
+    summary: 'Fibra, TV e propaganda no canal próprio da Ultra para dar visibilidade ao negócio.',
+    price: '299',
     cents: ',90',
-    note: 'Por 3 meses. Após, R$ 109,90',
-    apps: ['WhatsApp', 'Streaming', '100GB Google One'],
-  },
-  {
-    badge: 'Família',
-    title: '200GB',
-    price: '129',
-    cents: ',90',
-    note: 'Por 3 meses. Após, R$ 149,90',
-    apps: ['WhatsApp', 'Streaming', '200GB Google One'],
+    note: 'Inclui propaganda no canal próprio da Ultra. Consulte disponibilidade técnica.',
+    apps: ['Internet na fibra 600MB', 'TV com 60 canais', 'Propaganda no canal próprio da Ultra'],
   },
 ];
 
@@ -481,15 +475,14 @@ const pageRoutes = {
 };
 
 const formOptions = {
-  movel: {
-    label: 'Plano Móvel',
+  fibra_tv: {
+    label: 'Fibra + TV',
     fieldLabel: 'Selecione o plano desejado',
     field: (
       <select>
-        <option>Ultra 20GB - R$ 39,90/mês</option>
-        <option>Ultra 50GB - R$ 59,90/mês</option>
-        <option>Ultra 100GB - R$ 89,90/mês</option>
-        <option>Ultra 200GB - R$ 129,90/mês</option>
+        <option>Ultra Connect - 600MB - R$ 89,90</option>
+        <option>Ultra Experience - 600MB + TV 60 canais - R$ 119,90</option>
+        <option>Ultra Experience Negócios - 600MB + TV + propaganda - R$ 299,90</option>
       </select>
     ),
   },
@@ -510,8 +503,8 @@ const formOptions = {
       </select>
     ),
   },
-  tv_internet: {
-    label: 'TV & Internet',
+  cobertura: {
+    label: 'Consultar cobertura',
     fieldLabel: 'Digite seu CEP para consultarmos cobertura',
     field: <input type="text" placeholder="00000-000" />,
   },
@@ -539,7 +532,7 @@ function navigateTo(path) {
 }
 
 function App() {
-  const [formType, setFormType] = useState('movel');
+  const [formType, setFormType] = useState('fibra_tv');
   const [page, setPage] = useState(getCurrentPage);
   const selectedForm = formOptions[formType];
   const isAboutPage = page === 'sobre';
@@ -640,7 +633,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
           <span className="eyebrow">Ultra Bank</span>
           <h1>Banco digital e serviços essenciais no mesmo ecossistema.</h1>
           <p>
-            Conta, cartão, internet, telefonia, energia solar, consórcio e benefícios conectados
+            Conta, cartão, internet, TV, energia solar, consórcio e benefícios conectados
             para simplificar sua rotina.
           </p>
 
@@ -773,35 +766,38 @@ function HomePage({ formType, selectedForm, setFormType }) {
 
       <section className="section plans-section" id="planos">
         <div className="section-intro">
-          <span className="eyebrow">Ultra Móvel</span>
-          <h2>Planos claros, comparáveis e fáceis de contratar.</h2>
+          <span className="eyebrow">Ultra Fibra + TV</span>
+          <h2>Planos reais para conectar sua casa e o seu negócio.</h2>
           <p>
-            A telefonia vira parte do relacionamento financeiro, com gestão pelo ecossistema Ultra
-            e benefícios que complementam a conta.
+            Internet na fibra de 600MB, entretenimento com TV e uma opção com propaganda no canal
+            próprio da Ultra para ampliar a visibilidade da sua empresa.
           </p>
         </div>
 
         <div className="plans-grid">
           {plans.map((plan) => (
             <article className={`plan-card ${plan.featured ? 'featured' : ''}`} key={plan.title}>
-              <span className="plan-badge">{plan.badge}</span>
-              <h3>{plan.title}</h3>
-              <div className="price-row">
-                <small>R$</small>
-                <strong>{plan.price}</strong>
-                <span>{plan.cents}/mês</span>
+              <div className="plan-card-body">
+                <span className="plan-badge">{plan.badge}</span>
+                <h3>{plan.title}</h3>
+                <p className="plan-summary">{plan.summary}</p>
+                <div className="price-row">
+                  <small>R$</small>
+                  <strong>{plan.price}</strong>
+                  <span>{plan.cents}</span>
+                </div>
+                <ul>
+                  {plan.apps.map((app) => (
+                    <li key={app}>
+                      <CheckCircle2 size={16} />
+                      {app}
+                    </li>
+                  ))}
+                </ul>
+                <p className="plan-note">{plan.note}</p>
               </div>
-              <ul>
-                {plan.apps.map((app) => (
-                  <li key={app}>
-                    <CheckCircle2 size={16} />
-                    {app}
-                  </li>
-                ))}
-              </ul>
-              <p>{plan.note}</p>
               <a href="#contratacao">
-                Escolher plano
+                Contratar plano
                 <ArrowRight size={16} />
               </a>
             </article>
@@ -853,7 +849,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
           <span className="eyebrow">Contratação online</span>
           <h2>Escolha o serviço e a Ultra continua o atendimento.</h2>
           <p>
-            Envie seus dados iniciais para abertura de conta, plano móvel, energia solar, consórcio
+            Envie seus dados iniciais para abertura de conta, fibra + TV, energia solar, consórcio
             ou consulta de cobertura.
           </p>
           <div className="contract-checks">

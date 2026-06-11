@@ -510,6 +510,23 @@ const formOptions = {
   },
 };
 
+function maskCpfCnpj(value) {
+  const digits = value.replace(/\D/g, '').slice(0, 14);
+
+  if (digits.length > 11) {
+    return digits
+      .replace(/^(\d{2})(\d)/, '$1.$2')
+      .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+      .replace(/\.(\d{3})(\d)/, '.$1/$2')
+      .replace(/(\d{4})(\d)/, '$1-$2');
+  }
+
+  return digits
+    .replace(/^(\d{3})(\d)/, '$1.$2')
+    .replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3')
+    .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+}
+
 function getCurrentPage() {
   const path = window.location.pathname.replace(/\/$/, '') || '/';
   return pageRoutes[path] ?? 'home';
@@ -625,6 +642,9 @@ function Header({ isInternalPage }) {
 }
 
 function HomePage({ formType, selectedForm, setFormType }) {
+  const [heroDocument, setHeroDocument] = useState('');
+  const [leadDocument, setLeadDocument] = useState('');
+
   return (
     <main>
       <section className="hero-section" id="top">
@@ -640,7 +660,15 @@ function HomePage({ formType, selectedForm, setFormType }) {
           <form className="hero-form" onSubmit={(event) => event.preventDefault()}>
             <label htmlFor="cpf-hero">Abra sua conta pelo CPF</label>
             <div>
-              <input id="cpf-hero" type="text" placeholder="Digite seu CPF" />
+              <input
+                id="cpf-hero"
+                type="text"
+                inputMode="numeric"
+                maxLength={14}
+                placeholder="Digite seu CPF"
+                value={heroDocument}
+                onChange={(event) => setHeroDocument(maskCpfCnpj(event.target.value).slice(0, 14))}
+              />
               <button type="submit">
                 Começar
                 <ArrowRight size={18} />
@@ -890,7 +918,16 @@ function HomePage({ formType, selectedForm, setFormType }) {
           <div className="form-columns">
             <div className="form-row">
               <label htmlFor="document">CPF / CNPJ</label>
-              <input id="document" type="text" placeholder="000.000.000-00" required />
+              <input
+                id="document"
+                type="text"
+                inputMode="numeric"
+                maxLength={18}
+                placeholder="000.000.000-00"
+                value={leadDocument}
+                onChange={(event) => setLeadDocument(maskCpfCnpj(event.target.value))}
+                required
+              />
             </div>
             <div className="form-row">
               <label htmlFor="email">E-mail</label>

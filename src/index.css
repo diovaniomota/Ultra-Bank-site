@@ -5,9 +5,9 @@
   --muted: #617085;
   --navy: #08172c;
   --blue: #163d7a;
-  --teal: #009a86;
-  --mint: #e7f7ef;
-  --lime: #c8ec72;
+  --teal: #b8c0cc;
+  --mint: #edf1f5;
+  --lime: #d7dde5;
   --gold: #f3c34b;
   --coral: #ff714f;
   --paper: #f5f8f6;
@@ -190,7 +190,7 @@ button {
 
 .hero-content .eyebrow,
 .contract-copy .eyebrow {
-  color: var(--lime);
+  color: var(--teal);
 }
 
 h1,
@@ -388,7 +388,7 @@ h3 {
 }
 
 .app-showcase::before {
-  background: linear-gradient(135deg, rgba(0, 154, 134, 0.38), transparent 58%);
+  background: linear-gradient(135deg, rgba(184, 192, 204, 0.38), transparent 58%);
   content: '';
   inset: 0;
   position: absolute;
@@ -867,7 +867,7 @@ h3 {
 .form-row input:focus,
 .form-row select:focus {
   border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(0, 154, 134, 0.12);
+  box-shadow: 0 0 0 3px rgba(184, 192, 204, 0.18);
 }
 
 .submit-button {

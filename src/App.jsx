@@ -40,7 +40,7 @@ const navItems = [
 ];
 
 const heroHighlights = [
-  { icon: Wifi, label: 'Fibra 600MB' },
+  { icon: Wifi, label: 'Fibra 700 Mb' },
   { icon: PlayCircle, label: 'TV 60 canais' },
   { icon: ShieldCheck, label: 'Conexão estável' },
 ];
@@ -65,13 +65,13 @@ const solutions = [
     icon: Wifi,
     eyebrow: 'Fibra',
     title: 'Ultra Connect',
-    text: 'Conexão essencial com 600MB de internet na fibra e estabilidade para toda a casa.',
+    text: 'Conexão essencial com 700 Mb de internet na fibra e estabilidade para toda a casa.',
   },
   {
     icon: Wifi,
     eyebrow: 'Internet + entretenimento',
     title: 'Ultra Experience',
-    text: 'Fibra 600MB, TV com 60 canais e canais como Sportv, Premiere e Telecine.',
+    text: 'Fibra 700 Mb, TV com 60 canais e canais como Sportv, Premiere e Telecine.',
   },
   {
     icon: Sun,
@@ -98,20 +98,20 @@ const plans = [
   {
     badge: 'Conexão essencial',
     title: 'Ultra Connect',
-    summary: '600MB de internet na fibra para uma casa mais rápida e estável.',
+    summary: '700 Mb de internet na fibra para uma casa mais rápida e estável.',
     price: '89',
     cents: ',90',
     note: 'Taxa de serviço. Consulte disponibilidade técnica.',
-    apps: ['Internet na fibra 600MB', 'Ideal para streaming e jogos', 'Conexão estável para toda a casa'],
+    apps: ['Internet na fibra 700 Mb', 'Ideal para streaming e jogos', 'Conexão estável para toda a casa'],
   },
   {
     badge: 'Experiência completa',
     title: 'Ultra Experience',
-    summary: 'Internet 600MB com entretenimento completo para toda a família.',
+    summary: 'Internet 700 Mb com entretenimento completo para toda a família.',
     price: '119',
     cents: ',90',
     note: 'Canais e serviços sujeitos a alteração sem aviso prévio.',
-    apps: ['Internet na fibra 600MB', 'TV com 60 canais', 'Inclui Sportv, Premiere e Telecine'],
+    apps: ['Internet na fibra 700 Mb', 'TV com 60 canais', 'Inclui Sportv, Premiere e Telecine'],
     featured: true,
   },
   {
@@ -121,7 +121,7 @@ const plans = [
     price: '299',
     cents: ',90',
     note: 'Inclui propaganda no canal próprio da Ultra. Consulte disponibilidade técnica.',
-    apps: ['Internet na fibra 600MB', 'TV com 60 canais', 'Propaganda no canal próprio da Ultra'],
+    apps: ['Internet na fibra 700 Mb', 'TV com 60 canais', 'Propaganda no canal próprio da Ultra'],
   },
 ];
 
@@ -480,9 +480,9 @@ const formOptions = {
     fieldLabel: 'Selecione o plano desejado',
     field: (
       <select>
-        <option>Ultra Connect - 600MB - R$ 89,90</option>
-        <option>Ultra Experience - 600MB + TV 60 canais - R$ 119,90</option>
-        <option>Ultra Experience Negócios - 600MB + TV + propaganda - R$ 299,90</option>
+        <option>Ultra Connect - 700 Mb - R$ 89,90</option>
+        <option>Ultra Experience - 700 Mb + TV 60 canais - R$ 119,90</option>
+        <option>Ultra Experience Negócios - 700 Mb + TV + propaganda - R$ 299,90</option>
       </select>
     ),
   },
@@ -797,7 +797,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
           <span className="eyebrow">Ultra Fibra + TV</span>
           <h2>Planos reais para conectar sua casa e o seu negócio.</h2>
           <p>
-            Internet na fibra de 600MB, entretenimento com TV e uma opção com propaganda no canal
+            Internet na fibra de 700 Mb, entretenimento com TV e uma opção com propaganda no canal
             próprio da Ultra para ampliar a visibilidade da sua empresa.
           </p>
         </div>

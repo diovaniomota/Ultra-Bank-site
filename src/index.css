@@ -14,7 +14,7 @@
   --white: #ffffff;
   --line: #dfe6ef;
   --line-dark: rgba(255, 255, 255, 0.18);
-  --shadow: 0 18px 42px rgba(13, 31, 54, 0.12);
+  --shadow: 0 18px 42px rgba(154, 163, 174, 0.24);
 }
 
 * {
@@ -378,79 +378,161 @@ h3 {
 
 .app-showcase {
   align-items: center;
-  background: var(--navy);
-  color: var(--white);
-  display: grid;
-  min-height: 410px;
-  overflow: hidden;
-  padding: 30px;
-  position: relative;
-}
-
-.app-showcase::before {
-  background: linear-gradient(135deg, rgba(184, 192, 204, 0.38), transparent 58%);
-  content: '';
-  inset: 0;
-  position: absolute;
-}
-
-.app-showcase img {
-  justify-self: center;
-  margin-bottom: 92px;
-  max-height: 205px;
-  position: relative;
-  z-index: 1;
-}
-
-.app-panel {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid var(--line-dark);
+  background: #e9eef4;
+  border: 1px solid var(--line);
   border-radius: 8px;
-  bottom: 76px;
-  left: 24px;
-  padding: 18px;
-  position: absolute;
-  right: 24px;
-  z-index: 2;
+  box-shadow: var(--shadow);
+  color: var(--navy);
+  display: grid;
+  justify-items: center;
+  min-height: 560px;
+  overflow: hidden;
+  padding: 24px;
+  position: relative;
 }
 
-.app-panel span,
-.app-panel small {
-  color: rgba(255, 255, 255, 0.74);
-  display: block;
-  font-weight: 800;
+.app-screen {
+  background: var(--white);
+  border-radius: 28px;
+  box-shadow: 0 22px 48px rgba(8, 23, 44, 0.18);
+  max-width: 330px;
+  min-height: 520px;
+  overflow: hidden;
+  width: 100%;
 }
 
-.app-panel strong {
+.app-screen-top {
+  background: #05051f;
+  color: var(--white);
+  padding: 18px 20px 82px;
+}
+
+.app-status {
+  display: flex;
+  font-size: 0.75rem;
+  font-weight: 850;
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+
+.app-logo-text {
   display: block;
   font-family: 'Sora', sans-serif;
-  font-size: 2.2rem;
-  line-height: 1;
-  margin: 8px 0;
+  font-size: 1.8rem;
+  line-height: 0.9;
+  max-width: 120px;
 }
 
-.app-mini-grid {
-  bottom: 24px;
+.app-screen-top p {
+  color: var(--white);
+  font-size: 1.05rem;
+  margin-top: 28px;
+}
+
+.app-balance-card {
+  align-items: center;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(8, 23, 44, 0.16);
   display: grid;
   gap: 8px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  left: 24px;
-  position: absolute;
-  right: 24px;
-  z-index: 2;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin: -58px 16px 22px;
+  min-height: 108px;
+  padding: 18px;
+  position: relative;
 }
 
-.app-mini-grid span {
+.app-balance-card span,
+.app-service small {
+  color: #71717a;
+  display: block;
+  font-weight: 750;
+}
+
+.app-balance-card strong {
+  color: var(--navy);
+  font-family: 'Sora', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.app-balance-card a {
   align-items: center;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 6px;
+  color: #66666d;
+  display: inline-flex;
+  font-weight: 850;
+  gap: 4px;
+  grid-row: span 2;
+}
+
+.app-actions {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 0 16px 22px;
+}
+
+.app-actions span {
+  align-items: center;
+  background: #05051f;
+  border-radius: 999px;
   color: var(--white);
   display: flex;
-  font-size: 0.82rem;
-  font-weight: 850;
+  font-size: 0.88rem;
+  font-weight: 800;
+  gap: 6px;
   justify-content: center;
-  min-height: 42px;
+  min-height: 44px;
+}
+
+.app-service,
+.app-banner {
+  margin: 0 16px 16px;
+}
+
+.app-service {
+  align-items: center;
+  background: var(--white);
+  border: 1px solid #dddddf;
+  border-radius: 8px;
+  color: #202027;
+  display: flex;
+  gap: 12px;
+  min-height: 72px;
+  padding: 14px;
+}
+
+.app-service-wide {
+  justify-content: space-between;
+}
+
+.app-service-wide span {
+  flex: 1;
+}
+
+.app-service-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 0 16px;
+}
+
+.app-service-grid .app-service {
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 0 16px;
+  min-height: 92px;
+}
+
+.app-banner {
+  background: linear-gradient(135deg, #08172c 0%, #163d7a 100%);
+  border-radius: 8px;
+  color: var(--white);
+  font-weight: 850;
+  min-height: 80px;
+  padding: 18px;
 }
 
 .feature-grid,
@@ -573,6 +655,7 @@ h3 {
 }
 
 .plan-card {
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   min-height: 480px;
@@ -584,7 +667,7 @@ h3 {
   background: var(--navy);
   border-color: var(--navy);
   color: var(--white);
-  box-shadow: 0 24px 58px rgba(8, 23, 44, 0.28);
+  box-shadow: 0 24px 58px rgba(154, 163, 174, 0.3);
   transform: translateY(-10px);
 }
 
@@ -890,6 +973,39 @@ h3 {
   color: var(--white);
 }
 
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.contact-links a {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--white);
+  display: inline-flex;
+  gap: 8px;
+  min-height: 50px;
+  padding: 0 14px;
+}
+
+.contact-links a:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.contact-links span {
+  color: var(--teal);
+  font-weight: 850;
+}
+
+.contact-links strong {
+  color: var(--white);
+  font-weight: 850;
+}
+
 .about-grid {
   grid-template-columns: minmax(0, 1fr) 360px;
 }
@@ -910,10 +1026,14 @@ h3 {
 .about-card li,
 .promise-card span {
   align-items: center;
-  color: var(--ink);
+  color: var(--navy);
   display: flex;
   font-weight: 750;
   gap: 10px;
+}
+
+.about-card p {
+  color: var(--navy);
 }
 
 .about-card svg,
@@ -968,13 +1088,25 @@ footer {
   margin-bottom: 44px;
 }
 
-.footer-brand img {
+.footer-brand-logo {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 22px;
+  width: max-content;
+}
+
+.footer-brand-logo img {
   filter: brightness(0) invert(1);
   height: auto;
-  margin-bottom: 18px;
-  transform: scale(1.2);
   transform-origin: left center;
+}
+
+.footer-brand-logo img:first-child {
   width: 150px;
+}
+
+.footer-brand-logo img:last-child {
+  width: 170px;
 }
 
 .footer-brand p,

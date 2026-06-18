@@ -11,10 +11,11 @@ import {
   Gift,
   HandCoins,
   Headphones,
-  HousePlug,
   Landmark,
   LockKeyhole,
+  Mail,
   PlayCircle,
+  PlusCircle,
   Router,
   Scale,
   ShieldCheck,
@@ -26,7 +27,6 @@ import {
   Zap,
 } from 'lucide-react';
 import happyCustomers from './assets/happy_customers.png';
-import heroArt from './assets/hero.png';
 import ultraBankLogo from './assets/ultra_bank.png';
 import consorcioImage from './assets/consorcio.png';
 import ultraClubImage from './assets/ultra_club.png';
@@ -90,7 +90,7 @@ const solutions = [
 const extraServices = [
   { icon: ShoppingBag, title: 'Marketplace', text: 'Ofertas, orçamentos e compras com vantagens para clientes Ultra.' },
   { icon: Gift, title: 'Ultra Club', text: 'Pontos, cashback e benefícios que crescem com o uso dos serviços.' },
-  { icon: HousePlug, title: 'Casa inteligente', text: 'Automação e serviços conectados para simplificar a rotina.' },
+  { icon: Smartphone, title: 'Telefonia móvel', text: 'Planos móveis para manter você conectado dentro e fora de casa.' },
   { icon: PlayCircle, title: 'Streaming', text: 'Entretenimento e combos digitais para deixar o pacote mais completo.' },
 ];
 
@@ -353,6 +353,20 @@ const supportPages = {
     title: 'Fale com a gente',
     intro:
       'Use este canal para iniciar uma conversa com a Ultra, tirar dúvidas comerciais, solicitar suporte ou receber orientação sobre produtos e serviços.',
+    contacts: [
+      {
+        icon: Smartphone,
+        label: 'WhatsApp',
+        value: '(73) 93300-5654',
+        href: 'https://wa.me/5573933005654',
+      },
+      {
+        icon: Mail,
+        label: 'E-mail',
+        value: 'suporte@ultrabankinvestiments.com.br',
+        href: 'mailto:suporte@ultrabankinvestiments.com.br',
+      },
+    ],
     sections: [
       {
         title: 'Antes de entrar em contato',
@@ -723,16 +737,73 @@ function HomePage({ formType, selectedForm, setFormType }) {
 
         <div className="account-layout">
           <div className="app-showcase">
-            <img src={heroArt} alt="" aria-hidden="true" />
-            <div className="app-panel">
-              <span>Saldo disponível</span>
-              <strong>R$ 4.820,40</strong>
-              <small>benefícios ativos</small>
-            </div>
-            <div className="app-mini-grid" aria-label="Atalhos do app Ultra">
-              <span>Pix</span>
-              <span>Cartão</span>
-              <span>Clube</span>
+            <div className="app-screen" aria-label="Print do aplicativo Ultra Bank">
+              <div className="app-screen-top">
+                <div className="app-status">
+                  <span>20:25</span>
+                  <span>5G</span>
+                </div>
+                <strong className="app-logo-text">ultra bank</strong>
+                <p>Olá, Ana Paula</p>
+              </div>
+
+              <div className="app-balance-card">
+                <span>Saldo disponível</span>
+                <strong>*****</strong>
+                <a href="#contratacao">
+                  Extrato
+                  <ChevronRight size={18} />
+                </a>
+              </div>
+
+              <div className="app-actions" aria-label="Atalhos do app Ultra">
+                <span>
+                  <Zap size={17} />
+                  Pix
+                </span>
+                <span>
+                  <CreditCard size={17} />
+                  Pagar
+                </span>
+                <span>
+                  <Smartphone size={17} />
+                  Recarga
+                </span>
+              </div>
+
+              <div className="app-service app-service-wide">
+                <CreditCard size={22} />
+                <span>Meus cartões</span>
+                <ChevronRight size={20} />
+              </div>
+
+              <div className="app-service-grid">
+                <div className="app-service">
+                  <ArrowRight size={20} />
+                  <span>Depositar</span>
+                </div>
+                <div className="app-service">
+                  <ArrowRight size={20} />
+                  <span>TED</span>
+                </div>
+                <div className="app-service">
+                  <PlusCircle size={20} />
+                  <span>Mais Serviços</span>
+                </div>
+              </div>
+
+              <div className="app-banner">
+                <span>A melhor conexão para você e sua família!</span>
+              </div>
+
+              <div className="app-service app-service-wide">
+                <Landmark size={22} />
+                <span>
+                  Internet Banking
+                  <small>Acesse sua conta digital através do seu navegador</small>
+                </span>
+                <ChevronRight size={20} />
+              </div>
             </div>
           </div>
 
@@ -875,7 +946,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
       <section className="section contract-section" id="contratacao">
         <div className="contract-copy">
           <span className="eyebrow">Contratação online</span>
-          <h2>Escolha o serviço e a Ultra continua o atendimento.</h2>
+          <h2>Escolha o serviço e o Ultra Bank continua o atendimento.</h2>
           <p>
             Envie seus dados iniciais para abertura de conta, fibra + TV, energia solar, consórcio
             ou consulta de cobertura.
@@ -1023,6 +1094,21 @@ function TransparencyPage({ pageData }) {
           <span className="eyebrow">{pageData.eyebrow}</span>
           <h1>{pageData.title}</h1>
           <p>{pageData.intro}</p>
+          {pageData.contacts && (
+            <div className="contact-links" aria-label="Canais de atendimento">
+              {pageData.contacts.map((contact) => {
+                const ContactIcon = contact.icon;
+
+                return (
+                  <a href={contact.href} key={contact.href} target="_blank" rel="noreferrer">
+                    <ContactIcon size={18} />
+                    <span>{contact.label}</span>
+                    <strong>{contact.value}</strong>
+                  </a>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
@@ -1081,10 +1167,12 @@ function Footer() {
     <footer id="suporte">
       <div className="footer-grid">
         <div className="footer-brand">
-          <img src={ultraBankLogo} alt="Ultra Bank" />
+          <div className="footer-brand-logo" aria-label="Ultra Bank Infinitas Possibilidades">
+            <img src={ultraBankLogo} alt="" />
+            <img src={infinitasLogo} alt="" />
+          </div>
           <p>
-            Banco digital, conectividade, energia, consórcio e benefícios em uma experiência mais
-            simples para o dia a dia.
+            Um banco digital com Infinitas Possibilidades em um só clique.
           </p>
         </div>
 
@@ -1165,10 +1253,9 @@ function Footer() {
           <strong>Ultra Negócios Financeiros e Empresariais LTDA</strong> - CNPJ:
           53.635.395/0001-65
           <br />
-          Avenida Félix Mendonça, 696 - Andar 1 - Góes Calmon - Itabuna, BA - CEP 45605-351
+          R. Sergipe, 216 - Jardim Vitória - Itabuna - BA - CEP 45605-460
         </p>
         <div className="footer-group">
-          <span>Uma empresa do grupo:</span>
           <div className="footer-logo-box">
             <img src={infinitasLogo} alt="Infinitas Possibilidades" />
           </div>

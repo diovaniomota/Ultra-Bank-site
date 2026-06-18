@@ -40,6 +40,16 @@ test('contact page has clickable WhatsApp and email links', async ({ page }) => 
   );
 });
 
+test('hero CPF input validates and fills the contract form', async ({ page }) => {
+  await page.goto('/');
+
+  await page.getByLabel('Abra sua conta pelo CPF').fill('52998224725');
+  await expect(page.getByText('CPF válido. Vamos continuar com seu cadastro.')).toBeVisible();
+  await page.getByRole('button', { name: /Continuar/ }).click();
+
+  await expect(page.locator('#document')).toHaveValue('529.982.247-25');
+});
+
 test('about page cards use the requested silver shadow', async ({ page }) => {
   await page.goto('/sobre');
 

@@ -541,6 +541,25 @@ function maskCpfCnpj(value) {
     .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
 }
 
+function isValidCpf(value) {
+  const cpf = value.replace(/\D/g, '');
+
+  if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
+    return false;
+  }
+
+  const calculateDigit = (base) => {
+    const sum = base.split('').reduce((total, digit, index) => total + Number(digit) * (base.length + 1 - index), 0);
+    const rest = (sum * 10) % 11;
+    return rest === 10 ? 0 : rest;
+  };
+
+  const firstDigit = calculateDigit(cpf.slice(0, 9));
+  const secondDigit = calculateDigit(cpf.slice(0, 10));
+
+  return firstDigit === Number(cpf[9]) && secondDigit === Number(cpf[10]);
+}
+
 function getCurrentPage() {
   const path = window.location.pathname.replace(/\/$/, '') || '/';
   return pageRoutes[path] ?? 'home';
@@ -658,6 +677,28 @@ function Header({ isInternalPage }) {
 function HomePage({ formType, selectedForm, setFormType }) {
   const [heroDocument, setHeroDocument] = useState('');
   const [leadDocument, setLeadDocument] = useState('');
+  const heroDigits = heroDocument.replace(/\D/g, '');
+  const heroCpfIsComplete = heroDigits.length === 11;
+  const heroCpfIsValid = isValidCpf(heroDocument);
+  const heroFeedback = heroCpfIsComplete
+    ? heroCpfIsValid
+      ? 'CPF válido. Vamos continuar com seu cadastro.'
+      : 'Confira o CPF digitado para continuar.'
+    : heroDigits.length > 0
+      ? 'Continue digitando os 11 números do CPF.'
+      : '';
+
+  const handleHeroSubmit = (event) => {
+    event.preventDefault();
+
+    if (!heroCpfIsValid) {
+      return;
+    }
+
+    setLeadDocument(heroDocument);
+    setFormType('fibra_tv');
+    document.getElementById('contratacao')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <main>
@@ -671,11 +712,13 @@ function HomePage({ formType, selectedForm, setFormType }) {
             para simplificar sua rotina.
           </p>
 
-          <form className="hero-form" onSubmit={(event) => event.preventDefault()}>
+          <form className="hero-form" onSubmit={handleHeroSubmit}>
             <label htmlFor="cpf-hero">Abra sua conta pelo CPF</label>
             <div>
               <input
                 id="cpf-hero"
+                aria-describedby={heroFeedback ? 'cpf-hero-feedback' : undefined}
+                aria-invalid={heroCpfIsComplete && !heroCpfIsValid}
                 type="text"
                 inputMode="numeric"
                 maxLength={14}
@@ -683,11 +726,19 @@ function HomePage({ formType, selectedForm, setFormType }) {
                 value={heroDocument}
                 onChange={(event) => setHeroDocument(maskCpfCnpj(event.target.value).slice(0, 14))}
               />
-              <button type="submit">
-                Começar
+              <button disabled={!heroCpfIsValid} type="submit">
+                {heroCpfIsValid ? 'Continuar' : 'Começar'}
                 <ArrowRight size={18} />
               </button>
             </div>
+            {heroFeedback && (
+              <p
+                className={`hero-form-feedback ${heroCpfIsValid ? 'success' : 'error'}`}
+                id="cpf-hero-feedback"
+              >
+                {heroFeedback}
+              </p>
+            )}
           </form>
 
           <div className="hero-actions-row">

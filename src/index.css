@@ -264,6 +264,29 @@ h3 {
   padding: 0 18px;
 }
 
+.hero-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.hero-form-feedback {
+  border-radius: 6px;
+  font-size: 0.84rem !important;
+  font-weight: 800 !important;
+  margin: 8px 0 0 !important;
+  padding: 8px 10px;
+}
+
+.hero-form-feedback.error {
+  background: #fff2ef;
+  color: #a43a25 !important;
+}
+
+.hero-form-feedback.success {
+  background: #edf8f2;
+  color: #147345 !important;
+}
+
 .hero-actions-row,
 .hero-footer,
 .contract-checks {

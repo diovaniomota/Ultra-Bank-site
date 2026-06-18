@@ -547,6 +547,7 @@ h3 {
 }
 
 .feature-grid {
+  align-content: start;
   grid-template-columns: 1fr;
 }
 
@@ -564,10 +565,11 @@ h3 {
 
 .feature-card {
   align-items: flex-start;
+  align-self: start;
   display: grid;
   gap: 0 18px;
   grid-template-columns: auto minmax(0, 1fr);
-  min-height: 126px;
+  min-height: 112px;
   padding: 24px;
 }
 

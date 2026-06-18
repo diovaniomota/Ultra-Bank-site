@@ -11,6 +11,13 @@ test('homepage reflects requested Ultra Bank content changes', async ({ page }) 
   await expect(page.getByText('Recarga')).toBeVisible();
   await expect(page.getByText('Internet Banking')).toBeVisible();
 
+  const planShadow = await page.locator('.plan-card').first().evaluate((card) => getComputedStyle(card).boxShadow);
+  const featuredPlanShadow = await page
+    .locator('.plan-card.featured')
+    .evaluate((card) => getComputedStyle(card).boxShadow);
+  expect(planShadow).toContain('92, 178, 255');
+  expect(featuredPlanShadow).toContain('92, 178, 255');
+
   await expect(page.getByRole('heading', { name: 'Escolha o serviço e o Ultra Bank continua o atendimento.' })).toBeVisible();
 
   const footer = page.locator('footer');

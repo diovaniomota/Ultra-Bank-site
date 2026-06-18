@@ -1270,8 +1270,10 @@ footer {
 
   .hero-section {
     align-items: flex-start;
-    min-height: 650px;
+    min-height: auto;
+    padding-bottom: 32px;
     padding-top: 58px;
+    flex-direction: column;
   }
 
   .hero-section::before {
@@ -1289,6 +1291,10 @@ footer {
 
   .hero-content p {
     font-size: 1rem;
+  }
+
+  .hero-content {
+    width: 100%;
   }
 
   .hero-form div,
@@ -1399,9 +1405,20 @@ footer {
   }
 
   .hero-footer {
-    bottom: 20px;
-    left: 24px;
-    right: 24px;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr;
+    left: auto;
+    margin-top: 18px;
+    position: relative;
+    right: auto;
+    width: 100%;
+  }
+
+  .hero-footer span {
+    justify-content: flex-start;
+    min-width: 0;
+    width: 100%;
   }
 
   .quick-nav,

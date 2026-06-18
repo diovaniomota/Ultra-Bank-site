@@ -1011,6 +1011,10 @@ h3 {
   grid-template-columns: minmax(0, 1fr) 360px;
 }
 
+.about-card {
+  box-shadow: 0 18px 42px rgba(154, 163, 174, 0.24);
+}
+
 .about-main,
 .about-side {
   display: grid;

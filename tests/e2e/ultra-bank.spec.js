@@ -39,3 +39,13 @@ test('contact page has clickable WhatsApp and email links', async ({ page }) => 
     'mailto:suporte@ultrabankinvestiments.com.br',
   );
 });
+
+test('about page cards use the requested silver shadow', async ({ page }) => {
+  await page.goto('/sobre');
+
+  await expect(page.getByRole('heading', { name: 'Quem somos nós' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Nossos valores' })).toBeVisible();
+
+  const aboutCardShadow = await page.locator('.about-card').first().evaluate((card) => getComputedStyle(card).boxShadow);
+  expect(aboutCardShadow).toContain('154, 163, 174');
+});

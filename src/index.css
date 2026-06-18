@@ -1130,7 +1130,7 @@ footer {
 }
 
 .footer-brand-signature img {
-  left: -48px;
+  left: -40px;
   top: -18px;
   width: 196px;
 }
@@ -1299,6 +1299,62 @@ footer {
     flex-direction: column;
   }
 
+  .contract-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .contract-copy,
+  .lead-form {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .contract-checks {
+    display: grid;
+    gap: 10px;
+  }
+
+  .contract-checks span {
+    width: 100%;
+  }
+
+  .tabs {
+    margin-left: -2px;
+    max-width: 100%;
+    padding-bottom: 8px;
+  }
+
+  .tabs button {
+    min-height: 40px;
+    padding: 0 12px;
+  }
+
+  .contact-links {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-links a {
+    align-items: flex-start;
+    display: grid;
+    gap: 2px 8px;
+    grid-template-columns: auto minmax(0, 1fr);
+    height: auto;
+    min-width: 0;
+    padding: 12px 14px;
+    width: 100%;
+  }
+
+  .contact-links a svg {
+    grid-row: span 2;
+    margin-top: 3px;
+  }
+
+  .contact-links strong {
+    overflow-wrap: anywhere;
+  }
+
   .footer-group {
     align-items: flex-start;
     flex-direction: column;
@@ -1307,6 +1363,32 @@ footer {
 
   .footer-logo-box {
     width: 156px;
+  }
+
+  .footer-brand-logo {
+    width: 170px;
+  }
+
+  .footer-brand-mark {
+    height: 90px;
+    width: 170px;
+  }
+
+  .footer-brand-mark img {
+    left: 0;
+    top: -5px;
+    width: 170px;
+  }
+
+  .footer-brand-signature {
+    height: 48px;
+    width: 170px;
+  }
+
+  .footer-brand-signature img {
+    left: -34px;
+    top: -18px;
+    width: 190px;
   }
 
   .hero-form button,
@@ -1352,7 +1434,14 @@ footer {
   }
 
   .app-showcase {
-    min-height: 380px;
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .app-screen {
+    border-radius: 22px;
+    max-width: 330px;
+    min-height: 510px;
   }
 
   .benefit-card {

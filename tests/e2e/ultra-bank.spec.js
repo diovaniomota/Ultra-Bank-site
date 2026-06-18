@@ -49,3 +49,19 @@ test('about page cards use the requested silver shadow', async ({ page }) => {
   const aboutCardShadow = await page.locator('.about-card').first().evaluate((card) => getComputedStyle(card).boxShadow);
   expect(aboutCardShadow).toContain('154, 163, 174');
 });
+
+test('mobile pages do not create horizontal overflow', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+
+  for (const path of ['/', '/sobre', '/fale-com-a-gente']) {
+    await page.goto(path);
+    await page.waitForLoadState('networkidle');
+
+    const overflow = await page.evaluate(() => ({
+      innerWidth,
+      scrollWidth: document.documentElement.scrollWidth,
+    }));
+
+    expect(overflow.scrollWidth).toBeLessThanOrEqual(overflow.innerWidth);
+  }
+});

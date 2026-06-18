@@ -1168,8 +1168,12 @@ function Footer() {
       <div className="footer-grid">
         <div className="footer-brand">
           <div className="footer-brand-logo" aria-label="Ultra Bank Infinitas Possibilidades">
-            <img src={ultraBankLogo} alt="" />
-            <img src={infinitasLogo} alt="" />
+            <span className="footer-brand-mark">
+              <img src={ultraBankLogo} alt="" />
+            </span>
+            <span className="footer-brand-signature">
+              <img src={infinitasLogo} alt="" />
+            </span>
           </div>
           <p>
             Um banco digital com Infinitas Possibilidades em um só clique.

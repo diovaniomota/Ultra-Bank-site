@@ -1094,24 +1094,45 @@ footer {
 }
 
 .footer-brand-logo {
-  display: grid;
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   margin-bottom: 22px;
-  width: max-content;
+  width: 184px;
+}
+
+.footer-brand-logo span {
+  display: block;
+  overflow: hidden;
+  position: relative;
 }
 
 .footer-brand-logo img {
   filter: brightness(0) invert(1);
   height: auto;
-  transform-origin: left center;
+  position: absolute;
 }
 
-.footer-brand-logo img:first-child {
-  width: 150px;
+.footer-brand-mark {
+  height: 92px;
+  width: 184px;
 }
 
-.footer-brand-logo img:last-child {
+.footer-brand-mark img {
+  left: 0;
+  top: -7px;
+  width: 184px;
+}
+
+.footer-brand-signature {
+  height: 50px;
   width: 170px;
+}
+
+.footer-brand-signature img {
+  left: -48px;
+  top: -18px;
+  width: 196px;
 }
 
 .footer-brand p,

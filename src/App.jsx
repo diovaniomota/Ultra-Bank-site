@@ -28,9 +28,11 @@ import {
 } from 'lucide-react';
 import happyCustomers from './assets/happy_customers.png';
 import ultraBankLogo from './assets/ultra_bank.png';
+import ultraBankLogoFooter from './assets/ultra_bank_new.png';
 import consorcioImage from './assets/consorcio.png';
 import ultraClubImage from './assets/ultra_club.png';
 import infinitasLogo from './assets/infinitas_possibilidades.png';
+import outdoorLogo from './assets/infinitas_possibilidades_new.png';
 
 const navItems = [
   { label: 'Soluções', href: '#solucoes' },
@@ -1247,7 +1249,7 @@ function Footer() {
         <div className="footer-brand">
           <div className="footer-brand-logo" aria-label="Ultra Bank Infinitas Possibilidades">
             <span className="footer-brand-mark">
-              <img src={ultraBankLogo} alt="" />
+              <img src={ultraBankLogoFooter} alt="" />
             </span>
             <span className="footer-brand-signature">
               <img src={infinitasLogo} alt="" />
@@ -1339,7 +1341,7 @@ function Footer() {
         </p>
         <div className="footer-group">
           <div className="footer-logo-box">
-            <img src={infinitasLogo} alt="Infinitas Possibilidades" />
+            <img src={outdoorLogo} alt="Ultra Bank Infinitas Possibilidades" />
           </div>
         </div>
       </div>

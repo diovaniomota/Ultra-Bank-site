@@ -1251,9 +1251,6 @@ function Footer() {
             <span className="footer-brand-mark">
               <img src={ultraBankLogoFooter} alt="" />
             </span>
-            <span className="footer-brand-signature">
-              <img src={infinitasLogo} alt="" />
-            </span>
           </div>
           <p>
             Um banco digital com Infinitas Possibilidades em um só clique.

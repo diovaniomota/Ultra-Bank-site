@@ -22,7 +22,7 @@ test('homepage reflects requested Ultra Bank content changes', async ({ page }) 
 
   const footer = page.locator('footer');
   await expect(footer.getByText('Um banco digital com Infinitas Possibilidades em um só clique.')).toBeVisible();
-  await expect(footer.getByText('R. Sergipe, 216 - Jardim Vitória - Itabuna - BA - CEP 45605-460')).toBeVisible();
+  await expect(footer.getByText('R. Sergipe, 216 - Jardim VitoriaItabuna - BA, 45605-460')).toBeVisible();
   await expect(footer.getByText('Uma empresa do grupo:')).toHaveCount(0);
 });
 

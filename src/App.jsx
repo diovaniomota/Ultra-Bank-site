@@ -27,10 +27,10 @@ import {
   Zap,
 } from 'lucide-react';
 import happyCustomers from './assets/happy_customers.png';
-import ultraBankLogo from './assets/ultra_bank.png';
+import ultraBankLogo from './assets/ultra_bank_new.png';
 import consorcioImage from './assets/consorcio.png';
 import ultraClubImage from './assets/ultra_club.png';
-import infinitasLogo from './assets/infinitas_possibilidades.png';
+import infinitasLogo from './assets/infinitas_possibilidades_new.png';
 
 const navItems = [
   { label: 'Soluções', href: '#solucoes' },
@@ -51,7 +51,7 @@ const quickLinks = [
   ['Fibra e TV', Wifi],
   ['Energia Solar', Sun],
   ['Consórcio', Car],
-  ['Marketplace', ShoppingBag],
+  ['Ultra Móvel', ShoppingBag],
 ];
 
 const accountFeatures = [
@@ -88,7 +88,7 @@ const solutions = [
 ];
 
 const extraServices = [
-  { icon: ShoppingBag, title: 'Marketplace', text: 'Ofertas, orçamentos e compras com vantagens para clientes Ultra.' },
+  { icon: ShoppingBag, title: 'Ultra Móvel', text: 'Ofertas, orçamentos e compras com vantagens para clientes Ultra.' },
   { icon: Gift, title: 'Ultra Club', text: 'Pontos, cashback e benefícios que crescem com o uso dos serviços.' },
   { icon: Smartphone, title: 'Telefonia móvel', text: 'Planos móveis para manter você conectado dentro e fora de casa.' },
   { icon: PlayCircle, title: 'Streaming', text: 'Entretenimento e combos digitais para deixar o pacote mais completo.' },
@@ -117,13 +117,19 @@ const plans = [
   {
     badge: 'Crescimento e visibilidade',
     title: 'Ultra Experience Negócios',
-    summary: 'Fibra, TV e propaganda no canal próprio da Ultra para dar visibilidade ao negócio.',
+    summary: 'Fibra, TV e propaganda no canal próprio do Ultra Bank para dar visibilidade ao negócio.',
     price: '299',
     cents: ',90',
-    note: 'Inclui propaganda no canal próprio da Ultra. Consulte disponibilidade técnica.',
-    apps: ['Internet na fibra 700 Mb', 'TV com 60 canais', 'Propaganda no canal próprio da Ultra'],
+    note: 'Inclui propaganda no canal próprio do Ultra Bank. Consulte disponibilidade técnica.',
+    apps: ['Internet na fibra 700 Mb', 'TV com 60 canais', 'Propaganda no canal próprio do Ultra Bank'],
   },
 ];
+
+const whatsappNumber = '5573933005654';
+
+function getWhatsAppUrl(message) {
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
 
 const benefitStories = [
   {
@@ -131,7 +137,7 @@ const benefitStories = [
     image: consorcioImage,
     eyebrow: 'Consórcio Ultra',
     title: 'Planeje grandes conquistas com menos burocracia.',
-    text: 'Simule online e acompanhe a jornada pelo atendimento digital da Ultra.',
+    text: 'Simule online e acompanhe a jornada pelo atendimento digital do Ultra Bank.',
     action: 'Simular consórcio',
     icon: CalendarCheck,
   },
@@ -209,7 +215,7 @@ const transparencyPages = {
       {
         title: 'Como usamos as informações',
         paragraphs: [
-          'Utilizamos os dados para identificar o cliente, responder solicitações, executar contratos, prevenir fraudes, cumprir obrigações legais e melhorar a experiência nos canais da Ultra.',
+          'Utilizamos os dados para identificar o cliente, responder solicitações, executar contratos, prevenir fraudes, cumprir obrigações legais e melhorar a experiência nos canais do Ultra Bank.',
           'Comunicações comerciais podem ser enviadas para apresentar produtos, vantagens e atualizações do ecossistema, respeitando as preferências de contato informadas pelo cliente.',
         ],
       },
@@ -240,7 +246,7 @@ const transparencyPages = {
       {
         title: 'Uso dos canais digitais',
         paragraphs: [
-          'Os canais digitais da Ultra devem ser utilizados com informações verdadeiras, dispositivos seguros e respeito às regras de cadastro, autenticação e atendimento.',
+          'Os canais digitais do Ultra Bank devem ser utilizados com informações verdadeiras, dispositivos seguros e respeito às regras de cadastro, autenticação e atendimento.',
           'O cliente é responsável pela guarda de senhas, códigos de acesso e informações usadas para validar operações ou solicitações realizadas em seu nome.',
         ],
       },
@@ -285,7 +291,7 @@ const transparencyPages = {
       {
         title: 'Cuidados do cliente',
         paragraphs: [
-          'Nunca compartilhe senhas, códigos, tokens, links de acesso ou fotos de documentos por canais não oficiais. A Ultra não solicita dados sigilosos por mensagens inesperadas.',
+          'Nunca compartilhe senhas, códigos, tokens, links de acesso ou fotos de documentos por canais não oficiais. O Ultra Bank não solicita dados sigilosos por mensagens inesperadas.',
           'Mantenha seus dispositivos atualizados, use senhas fortes e confira sempre se está acessando canais e contatos oficiais antes de informar dados pessoais.',
         ],
       },
@@ -300,7 +306,7 @@ const transparencyPages = {
         title: 'Suporte e bloqueios preventivos',
         paragraphs: [
           'Em caso de perda de dispositivo, suspeita de fraude ou acesso desconhecido, solicite suporte para análise, orientação e eventual bloqueio preventivo dos canais afetados.',
-          'Quanto mais rápido o contato, maior a capacidade de reduzir riscos e preservar a segurança da sua experiência com a Ultra.',
+          'Quanto mais rápido o contato, maior a capacidade de reduzir riscos e preservar a segurança da sua experiência com o Ultra Bank.',
         ],
       },
     ],
@@ -319,7 +325,7 @@ const supportPages = {
       {
         title: 'Acesso e conta',
         paragraphs: [
-          'Se você precisa de ajuda para acessar sua conta, atualizar dados cadastrais ou entender uma etapa de validação, reúna seus documentos e procure os canais oficiais da Ultra.',
+          'Se você precisa de ajuda para acessar sua conta, atualizar dados cadastrais ou entender uma etapa de validação, reúna seus documentos e procure os canais oficiais do Ultra Bank.',
           'Para proteger sua segurança, algumas solicitações podem exigir confirmação de identidade antes de qualquer alteração cadastral ou liberação de acesso.',
         ],
       },
@@ -340,7 +346,7 @@ const supportPages = {
       {
         title: 'Atendimento seguro',
         paragraphs: [
-          'A Ultra não solicita senhas, códigos de autenticação ou dados sigilosos por contatos inesperados. Desconfie de mensagens com urgência exagerada ou links desconhecidos.',
+          'O Ultra Bank não solicita senhas, códigos de autenticação ou dados sigilosos por contatos inesperados. Desconfie de mensagens com urgência exagerada ou links desconhecidos.',
           'Quando tiver dúvida sobre a origem de um contato, interrompa a conversa e retome o atendimento pelos canais oficiais.',
         ],
       },
@@ -352,7 +358,7 @@ const supportPages = {
     eyebrow: 'Atendimento',
     title: 'Fale com a gente',
     intro:
-      'Use este canal para iniciar uma conversa com a Ultra, tirar dúvidas comerciais, solicitar suporte ou receber orientação sobre produtos e serviços.',
+      'Use este canal para iniciar uma conversa com o Ultra Bank, tirar dúvidas comerciais, solicitar suporte ou receber orientação sobre produtos e serviços.',
     contacts: [
       {
         icon: Smartphone,
@@ -448,7 +454,7 @@ const supportPages = {
         title: 'Como abrir minha conta?',
         paragraphs: [
           'Você pode iniciar a solicitação pelos formulários do site, informando seus dados básicos e o serviço de interesse.',
-          'Após o envio, a Ultra orienta as próximas etapas de validação, análise cadastral e ativação conforme o produto solicitado.',
+          'Após o envio, o Ultra Bank orienta as próximas etapas de validação, análise cadastral e ativação conforme o produto solicitado.',
         ],
       },
       {
@@ -469,7 +475,7 @@ const supportPages = {
         title: 'Como me proteger de golpes?',
         paragraphs: [
           'Nunca compartilhe senhas, códigos, tokens ou links de acesso. Confirme a origem de mensagens antes de clicar, responder ou enviar documentos.',
-          'Em caso de suspeita, pare a conversa e procure imediatamente os canais oficiais da Ultra para receber orientação.',
+          'Em caso de suspeita, pare a conversa e procure imediatamente os canais oficiais do Ultra Bank para receber orientação.',
         ],
       },
     ],
@@ -493,7 +499,7 @@ const formOptions = {
     label: 'Fibra + TV',
     fieldLabel: 'Selecione o plano desejado',
     field: (
-      <select>
+      <select name="requestDetail">
         <option>Ultra Connect - 700 Mb - R$ 89,90</option>
         <option>Ultra Experience - 700 Mb + TV 60 canais - R$ 119,90</option>
         <option>Ultra Experience Negócios - 700 Mb + TV + propaganda - R$ 299,90</option>
@@ -503,13 +509,13 @@ const formOptions = {
   solar: {
     label: 'Energia Solar',
     fieldLabel: 'Valor médio da sua conta de luz',
-    field: <input type="number" placeholder="R$ Ex: 250,00" />,
+    field: <input name="requestDetail" type="number" placeholder="R$ Ex: 250,00" required />,
   },
   consorcio: {
     label: 'Consórcio',
     fieldLabel: 'Qual o seu objetivo?',
     field: (
-      <select>
+      <select name="requestDetail">
         <option>Comprar um imóvel</option>
         <option>Comprar um carro</option>
         <option>Comprar uma moto</option>
@@ -518,9 +524,9 @@ const formOptions = {
     ),
   },
   cobertura: {
-    label: 'Consultar cobertura',
+    label: 'Ultra Móvel',
     fieldLabel: 'Digite seu CEP para consultarmos cobertura',
-    field: <input type="text" placeholder="00000-000" />,
+    field: <input name="requestDetail" type="text" placeholder="00000-000" required />,
   },
 };
 
@@ -700,20 +706,34 @@ function HomePage({ formType, selectedForm, setFormType }) {
     document.getElementById('contratacao')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleLeadSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const message = [
+      `Olá! Quero solicitar atendimento para ${selectedForm.label}.`,
+      `Nome: ${formData.get('name')}`,
+      `CPF/CNPJ: ${formData.get('document')}`,
+      `E-mail: ${formData.get('email')}`,
+      `${selectedForm.fieldLabel}: ${formData.get('requestDetail')}`,
+    ].join('\n');
+
+    window.open(getWhatsAppUrl(message), '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <main>
       <section className="hero-section" id="top">
         <img className="hero-image" src={happyCustomers} alt="" aria-hidden="true" />
         <div className="hero-content">
           <span className="eyebrow">Ultra Bank</span>
-          <h1>Banco digital e serviços essenciais no mesmo ecossistema.</h1>
+          <h1>Um Banco Digital com serviços essenciais em um só ecossistema.</h1>
           <p>
-            Conta, cartão, internet, TV, energia solar, consórcio e benefícios conectados
-            para simplificar sua rotina.
+            Conta PJ OU PF, Cartão, Internet na Fibra, Tv na fibra, Telefonia Móvel, Consórcio e outros benefícios para simplificar sua rotina.
           </p>
 
           <form className="hero-form" onSubmit={handleHeroSubmit}>
-            <label htmlFor="cpf-hero">Abra sua conta pelo CPF</label>
+            <label htmlFor="cpf-hero">Abra agora, sua conta</label>
             <div>
               <input
                 id="cpf-hero"
@@ -781,7 +801,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
           <span className="eyebrow">Conta + ecossistema</span>
           <h2>Uma experiência financeira que acompanha o resto da sua vida.</h2>
           <p>
-            A Ultra entra como banco digital, mas entrega uma camada completa de conveniência:
+            O Ultra Bank entra como banco digital, mas entrega uma camada completa de conveniência:
             finanças, conectividade, economia e relacionamento.
           </p>
         </div>
@@ -920,7 +940,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
           <h2>Planos reais para conectar sua casa e o seu negócio.</h2>
           <p>
             Internet na fibra de 700 Mb, entretenimento com TV e uma opção com propaganda no canal
-            próprio da Ultra para ampliar a visibilidade da sua empresa.
+            próprio do Ultra Bank para ampliar a visibilidade da sua empresa.
           </p>
         </div>
 
@@ -946,7 +966,13 @@ function HomePage({ formType, selectedForm, setFormType }) {
                 </ul>
                 <p className="plan-note">{plan.note}</p>
               </div>
-              <a href="#contratacao">
+              <a
+                href={getWhatsAppUrl(
+                  `Olá! Tenho interesse no plano ${plan.title} de R$ ${plan.price}${plan.cents}. Gostaria de mais informações.`,
+                )}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Contratar plano
                 <ArrowRight size={16} />
               </a>
@@ -958,7 +984,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
       <section className="section benefits-section" id="beneficios">
         <div className="section-intro compact">
           <span className="eyebrow">Benefícios e planejamento</span>
-          <h2>Mais motivos para manter tudo dentro da Ultra.</h2>
+          <h2>Mais motivos para manter tudo dentro do Ultra Bank.</h2>
         </div>
 
         <div className="benefit-grid">
@@ -1018,7 +1044,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
           </div>
         </div>
 
-        <form className="lead-form" onSubmit={(event) => event.preventDefault()}>
+        <form className="lead-form" onSubmit={handleLeadSubmit}>
           <div className="tabs" role="tablist" aria-label="Tipo de serviço">
             {Object.entries(formOptions).map(([key, option]) => (
               <button
@@ -1034,7 +1060,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
 
           <div className="form-row">
             <label htmlFor="name">Nome completo</label>
-            <input id="name" type="text" placeholder="Como devemos chamar você?" required />
+            <input id="name" name="name" type="text" placeholder="Como devemos chamar você?" required />
           </div>
 
           <div className="form-columns">
@@ -1042,6 +1068,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
               <label htmlFor="document">CPF / CNPJ</label>
               <input
                 id="document"
+                name="document"
                 type="text"
                 inputMode="numeric"
                 maxLength={18}
@@ -1053,7 +1080,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
             </div>
             <div className="form-row">
               <label htmlFor="email">E-mail</label>
-              <input id="email" type="email" placeholder="seu@email.com" required />
+              <input id="email" name="email" type="email" placeholder="seu@email.com" required />
             </div>
           </div>
 
@@ -1080,7 +1107,7 @@ function AboutPage() {
           <span className="eyebrow">Sobre o Ultra Bank</span>
           <h1>Mais que uma conta digital: um ecossistema de possibilidades.</h1>
           <p>
-            A Ultra conecta serviços financeiros, tecnologia, benefícios e soluções essenciais para
+            O Ultra Bank conecta serviços financeiros, tecnologia, benefícios e soluções essenciais para
             simplificar a rotina de pessoas e empresas.
           </p>
         </div>
@@ -1191,7 +1218,7 @@ function TransparencyPage({ pageData }) {
 
           <article className="about-card promise-card">
             <span className="eyebrow">Canais oficiais</span>
-            <h3>Fale com a Ultra antes de informar dados ou confirmar uma solicitação.</h3>
+            <h3>Fale com o Ultra Bank antes de informar dados ou confirmar uma solicitação.</h3>
             <div>
               <span>
                 <Headphones size={18} />
@@ -1308,7 +1335,7 @@ function Footer() {
           <strong>Ultra Negócios Financeiros e Empresariais LTDA</strong> - CNPJ:
           53.635.395/0001-65
           <br />
-          R. Sergipe, 216 - Jardim Vitória - Itabuna - BA - CEP 45605-460
+          R. Sergipe, 216 - Jardim VitoriaItabuna - BA, 45605-460
         </p>
         <div className="footer-group">
           <div className="footer-logo-box">

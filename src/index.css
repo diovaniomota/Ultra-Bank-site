@@ -1126,25 +1126,19 @@ footer {
 
 .footer-brand-logo span {
   display: block;
-  overflow: hidden;
-  position: relative;
 }
 
 .footer-brand-logo img {
-  filter: brightness(0) invert(1);
   height: auto;
-  position: absolute;
 }
 
 .footer-brand-mark {
-  height: 92px;
-  width: 184px;
+  width: 200px;
 }
 
 .footer-brand-mark img {
-  left: 0;
-  top: -7px;
-  width: 184px;
+  filter: brightness(0) invert(1);
+  width: 200px;
 }
 
 .footer-brand-signature {

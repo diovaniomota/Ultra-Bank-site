@@ -27,10 +27,10 @@ import {
   Zap,
 } from 'lucide-react';
 import happyCustomers from './assets/happy_customers.png';
-import ultraBankLogo from './assets/ultra_bank_new.png';
+import ultraBankLogo from './assets/ultra_bank.png';
 import consorcioImage from './assets/consorcio.png';
 import ultraClubImage from './assets/ultra_club.png';
-import infinitasLogo from './assets/infinitas_possibilidades_new.png';
+import infinitasLogo from './assets/infinitas_possibilidades.png';
 
 const navItems = [
   { label: 'Soluções', href: '#solucoes' },
@@ -729,7 +729,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
           <span className="eyebrow">Ultra Bank</span>
           <h1>Um Banco Digital com serviços essenciais em um só ecossistema.</h1>
           <p>
-            Conta PJ OU PF, Cartão, Internet na Fibra, Tv na fibra, Telefonia Móvel, Consórcio e outros benefícios para simplificar sua rotina.
+            Conta PJ ou PF, Cartão, Internet na Fibra, Tv na fibra, Telefonia Móvel, Consórcio e outros benefícios para simplificar sua rotina.
           </p>
 
           <form className="hero-form" onSubmit={handleHeroSubmit}>

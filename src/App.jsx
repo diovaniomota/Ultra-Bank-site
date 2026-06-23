@@ -53,7 +53,7 @@ const quickLinks = [
   ['Fibra e TV', Wifi],
   ['Energia Solar', Sun],
   ['Consórcio', Car],
-  ['Ultra Móvel', ShoppingBag],
+  ['SIM Móvel', ShoppingBag],
 ];
 
 const accountFeatures = [
@@ -90,10 +90,8 @@ const solutions = [
 ];
 
 const extraServices = [
-  { icon: ShoppingBag, title: 'Ultra Móvel', text: 'Ofertas, orçamentos e compras com vantagens para clientes Ultra.' },
+  { icon: ShoppingBag, title: 'SIM Móvel', text: 'Ofertas, orçamentos e compras com vantagens para clientes Ultra.' },
   { icon: Gift, title: 'Ultra Club', text: 'Pontos, cashback e benefícios que crescem com o uso dos serviços.' },
-  { icon: Smartphone, title: 'Telefonia móvel', text: 'Planos móveis para manter você conectado dentro e fora de casa.' },
-  { icon: PlayCircle, title: 'Streaming', text: 'Entretenimento e combos digitais para deixar o pacote mais completo.' },
 ];
 
 const plans = [
@@ -526,7 +524,7 @@ const formOptions = {
     ),
   },
   cobertura: {
-    label: 'Ultra Móvel',
+    label: 'SIM Móvel',
     fieldLabel: 'Digite seu CEP para consultarmos cobertura',
     field: <input name="requestDetail" type="text" placeholder="00000-000" required />,
   },

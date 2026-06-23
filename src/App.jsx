@@ -32,7 +32,7 @@ import ultraBankLogoFooter from './assets/ultra_bank_new.png';
 import consorcioImage from './assets/consorcio.png';
 import ultraClubImage from './assets/ultra_club.png';
 import infinitasLogo from './assets/infinitas_possibilidades.png';
-import outdoorLogo from './assets/infinitas_possibilidades_new.png';
+import outdoorLogo from './assets/infinity_banner.png';
 
 const navItems = [
   { label: 'Soluções', href: '#solucoes' },

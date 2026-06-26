@@ -1284,7 +1284,8 @@ footer {
     width: 120px;
   }
 
-  .header-actions > a:not(.header-cta:last-child) {
+  .header-actions > a:first-child,
+  .header-cta--secondary {
     display: none;
   }
 
@@ -1324,10 +1325,16 @@ footer {
 
   .hero-form div,
   .hero-actions-row,
-  .about-teaser,
-  .footer-bottom {
+  .about-teaser {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .footer-bottom {
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
   }
 
   .hero-actions-row {
@@ -1397,13 +1404,19 @@ footer {
   }
 
   .footer-group {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    width: 100%;
   }
 
   .footer-logo-box {
-    width: 156px;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .footer-logo-box img {
+    width: 100%;
   }
 
   .footer-brand-logo {

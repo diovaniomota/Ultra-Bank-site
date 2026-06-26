@@ -28,6 +28,8 @@ import {
 } from 'lucide-react';
 import happyCustomers from './assets/happy_customers.png';
 import ultraBankLogo from './assets/ultra_bank_logo.svg';
+import badgeAppStore from './assets/badge_appstore_ptbr.svg';
+import badgePlayStore from './assets/badge_playstore.png';
 import ultraBankLogoFooter from './assets/ultra_bank_new.png';
 import consorcioImage from './assets/consorcio.png';
 import ultraClubImage from './assets/ultra_club.png';
@@ -488,6 +490,7 @@ const supportPages = {
 };
 
 const pageRoutes = {
+  '/abrir-conta': 'download',
   '/sobre': 'sobre',
   '/me-ajuda': 'help',
   '/fale-com-a-gente': 'contact',
@@ -591,6 +594,39 @@ function navigateTo(path) {
   });
 }
 
+function DownloadPage() {
+  return (
+    <main className="download-page">
+      <div className="download-card">
+        <span className="eyebrow">Ultra Bank</span>
+        <h1>Abra sua conta pelo app</h1>
+        <p>Escolha sua loja e baixe o Ultra Bank gratuitamente.</p>
+        <div className="download-buttons">
+          <a
+            className="store-badge-link"
+            href="https://apps.apple.com/br/app/ultrabank/id6737122931"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={badgeAppStore} alt="Baixar na App Store" />
+          </a>
+          <a
+            className="store-badge-link"
+            href="https://play.google.com/store/apps/details?id=br.com.acessobackoffice.ultrabank&hl=pt_BR"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={badgePlayStore} alt="Disponível no Google Play" />
+          </a>
+        </div>
+        <button className="ghost-button" style={{marginTop: '24px'}} onClick={() => navigateTo('/')}>
+          Voltar para o início
+        </button>
+      </div>
+    </main>
+  );
+}
+
 function MobileFab() {
   const [open, setOpen] = useState(false);
 
@@ -606,7 +642,7 @@ function MobileFab() {
           >
             Internet Banking
           </a>
-          <a href="#contratacao" onClick={() => setOpen(false)}>
+          <a href="/abrir-conta" onClick={(e) => { e.preventDefault(); setOpen(false); navigateTo('/abrir-conta'); }}>
             Abrir conta
           </a>
         </div>
@@ -623,6 +659,7 @@ function App() {
   const [page, setPage] = useState(getCurrentPage);
   const selectedForm = formOptions[formType];
   const isAboutPage = page === 'sobre';
+  const isDownloadPage = page === 'download';
   const contentPage = supportPages[page] ?? transparencyPages[page];
   const isInternalPage = page !== 'home';
 
@@ -636,7 +673,9 @@ function App() {
     <>
       <Header isInternalPage={isInternalPage} />
 
-      {isAboutPage ? (
+      {isDownloadPage ? (
+        <DownloadPage />
+      ) : isAboutPage ? (
         <AboutPage />
       ) : contentPage ? (
         <TransparencyPage pageData={contentPage} />
@@ -645,8 +684,6 @@ function App() {
       )}
 
       <Footer />
-
-      <MobileFab />
     </>
   );
 }
@@ -704,19 +741,17 @@ function Header({ isInternalPage }) {
         </a>
         <a
           className="header-cta"
-          href={isInternalPage ? '/' : '#contratacao'}
-          onClick={
-            isInternalPage
-              ? (event) => {
-                  event.preventDefault();
-                  navigateTo('/');
-                }
-              : undefined
-          }
+          href={isInternalPage ? '/' : '/abrir-conta'}
+          onClick={(event) => {
+            event.preventDefault();
+            navigateTo(isInternalPage ? '/' : '/abrir-conta');
+          }}
         >
           {isInternalPage ? 'Voltar para home' : 'Abrir conta'}
         </a>
       </div>
+
+      <MobileFab />
     </header>
   );
 }
@@ -1286,11 +1321,11 @@ function Footer() {
     <footer id="suporte">
       <div className="footer-grid">
         <div className="footer-brand">
-          <div className="footer-brand-logo" aria-label="Ultra Bank Infinitas Possibilidades">
+          <button className="footer-brand-logo" aria-label="Ultra Bank Infinitas Possibilidades" type="button" onClick={() => navigateTo('/')}>
             <span className="footer-brand-mark">
               <img src={ultraBankLogoFooter} alt="" />
             </span>
-          </div>
+          </button>
           <p>
             Um banco digital com Infinitas Possibilidades em um só clique.
           </p>

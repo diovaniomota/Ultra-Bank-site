@@ -142,38 +142,33 @@ button {
 }
 
 .mobile-fab-wrap {
-  bottom: 24px;
   display: none;
-  position: fixed;
-  right: 20px;
-  z-index: 999;
+  position: relative;
 }
 
 .mobile-fab-btn {
   align-items: center;
-  background: var(--navy);
-  border-radius: 999px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-  color: var(--white);
+  background: none;
+  color: var(--navy);
   cursor: pointer;
   display: flex;
-  font-size: 1.3rem;
-  height: 54px;
+  font-size: 1.5rem;
   justify-content: center;
-  width: 54px;
+  padding: 4px;
 }
 
 .mobile-fab-menu {
   background: var(--white);
   border-radius: 12px;
-  bottom: 66px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: absolute;
   right: 0;
+  top: 50px;
   width: 200px;
+  z-index: 100;
 }
 
 .mobile-fab-menu a {
@@ -1335,13 +1330,12 @@ footer {
     width: 120px;
   }
 
-  .header-actions > a:first-child,
-  .header-cta--secondary {
+  .header-actions {
     display: none;
   }
 
   .mobile-fab-wrap {
-    display: block;
+    display: flex;
   }
 
   .header-cta {
@@ -1575,5 +1569,90 @@ footer {
 
   .benefit-card img {
     height: 250px;
+  }
+}
+
+/* Download Page */
+.download-page {
+  align-items: center;
+  background: var(--off-white);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 80px 20px;
+}
+
+.download-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  max-width: 480px;
+  padding: 48px 40px;
+  text-align: center;
+  width: 100%;
+}
+
+.download-card h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.download-card > p {
+  color: #6b7a90;
+  margin-bottom: 36px;
+}
+
+.download-buttons {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.store-badge-link {
+  display: block;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.store-badge-link:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.store-badge-link img {
+  display: block;
+  height: auto;
+  width: 200px;
+}
+
+@media (max-width: 760px) {
+  .download-page {
+    padding: 60px 16px;
+  }
+
+  .download-card {
+    border-radius: 16px;
+    padding: 32px 20px;
+  }
+
+  .download-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .download-buttons {
+    gap: 12px;
+    width: 100%;
+  }
+
+  .store-badge-link {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .store-badge-link img {
+    max-width: 220px;
+    width: 100%;
   }
 }

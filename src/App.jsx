@@ -591,6 +591,33 @@ function navigateTo(path) {
   });
 }
 
+function MobileFab() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="mobile-fab-wrap">
+      {open && (
+        <div className="mobile-fab-menu">
+          <a
+            href="https://ultra.acontadigital.com.br/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+          >
+            Internet Banking
+          </a>
+          <a href="#contratacao" onClick={() => setOpen(false)}>
+            Abrir conta
+          </a>
+        </div>
+      )}
+      <button className="mobile-fab-btn" onClick={() => setOpen(!open)}>
+        {open ? '✕' : '☰'}
+      </button>
+    </div>
+  );
+}
+
 function App() {
   const [formType, setFormType] = useState('fibra_tv');
   const [page, setPage] = useState(getCurrentPage);
@@ -618,6 +645,8 @@ function App() {
       )}
 
       <Footer />
+
+      <MobileFab />
     </>
   );
 }

@@ -27,7 +27,7 @@ import {
   Zap,
 } from 'lucide-react';
 import happyCustomers from './assets/happy_customers.png';
-import ultraBankLogo from './assets/ultra_bank.png';
+import ultraBankLogo from './assets/ultra_bank_logo.svg';
 import ultraBankLogoFooter from './assets/ultra_bank_new.png';
 import consorcioImage from './assets/consorcio.png';
 import ultraClubImage from './assets/ultra_club.png';
@@ -48,12 +48,12 @@ const heroHighlights = [
 ];
 
 const quickLinks = [
-  ['Conta digital', WalletCards],
-  ['Ultra Connect', Wifi],
-  ['Fibra e TV', Wifi],
-  ['Energia Solar', Sun],
-  ['Consórcio', Car],
-  ['SIM Móvel', ShoppingBag],
+  ['Conta digital', WalletCards, '#solucoes'],
+  ['Ultra Connect', Wifi, '#planos'],
+  ['Fibra e TV', Wifi, '#planos'],
+  ['Energia Solar', Sun, '#energia-solar'],
+  ['Consórcio', Car, '#consorcio'],
+  ['SIM Móvel', ShoppingBag, '#contratacao'],
 ];
 
 const accountFeatures = [
@@ -64,24 +64,28 @@ const accountFeatures = [
 
 const solutions = [
   {
+    id: 'ultra-connect',
     icon: Wifi,
     eyebrow: 'Fibra',
     title: 'Ultra Connect',
     text: 'Conexão essencial com 700 Mb de internet na fibra e estabilidade para toda a casa.',
   },
   {
+    id: 'fibra-tv',
     icon: Wifi,
     eyebrow: 'Internet + entretenimento',
     title: 'Ultra Experience',
     text: 'Fibra 700 Mb, TV com 60 canais e canais como Sportv, Premiere e Telecine.',
   },
   {
+    id: 'energia-solar',
     icon: Sun,
     eyebrow: 'Economia',
     title: 'Energia Solar',
     text: 'Modelo por assinatura para reduzir a conta de luz sem instalar painéis.',
   },
   {
+    id: 'consorcio',
     icon: Car,
     eyebrow: 'Planejamento',
     title: 'Consórcio',
@@ -787,8 +791,8 @@ function HomePage({ formType, selectedForm, setFormType }) {
       </section>
 
       <section className="quick-nav" aria-label="Atalhos de produtos">
-        {quickLinks.map(([label, Icon]) => (
-          <a href="#solucoes" key={label}>
+        {quickLinks.map(([label, Icon, href]) => (
+          <a href={href} key={label}>
             <Icon size={20} />
             <span>{label}</span>
             <ChevronRight size={16} />
@@ -905,7 +909,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
             const Icon = solution.icon;
 
             return (
-              <article className="solution-card" key={solution.title}>
+              <article className="solution-card" id={solution.id} key={solution.title}>
                 <Icon size={26} />
                 <span>{solution.eyebrow}</span>
                 <h3>{solution.title}</h3>

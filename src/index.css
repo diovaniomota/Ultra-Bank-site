@@ -141,6 +141,17 @@ button {
   transform: translateY(-1px);
 }
 
+.header-cta--secondary {
+  background: transparent;
+  border: 2px solid var(--navy);
+  color: var(--navy) !important;
+}
+
+.header-cta--secondary:hover {
+  background: var(--navy);
+  color: var(--white) !important;
+}
+
 .hero-section {
   align-items: center;
   background: var(--navy);
@@ -1273,7 +1284,7 @@ footer {
     width: 120px;
   }
 
-  .header-actions > a:first-child {
+  .header-actions > a:not(.header-cta:last-child) {
     display: none;
   }
 
@@ -1396,29 +1407,15 @@ footer {
   }
 
   .footer-brand-logo {
-    width: 170px;
+    width: 180px;
   }
 
   .footer-brand-mark {
-    height: 90px;
-    width: 170px;
+    width: 180px;
   }
 
   .footer-brand-mark img {
-    left: 0;
-    top: -5px;
-    width: 170px;
-  }
-
-  .footer-brand-signature {
-    height: 48px;
-    width: 170px;
-  }
-
-  .footer-brand-signature img {
-    left: -34px;
-    top: -18px;
-    width: 190px;
+    width: 180px;
   }
 
   .hero-form button,
@@ -1459,9 +1456,27 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .quick-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    grid-template-columns: unset;
+    overflow-x: auto;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .quick-nav::-webkit-scrollbar {
+    display: none;
+  }
+
   .quick-nav a {
-    justify-content: space-between;
-    min-height: 60px;
+    flex-shrink: 0;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0 16px;
+    white-space: nowrap;
   }
 
   .section {

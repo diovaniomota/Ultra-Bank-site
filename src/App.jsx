@@ -666,6 +666,14 @@ function Header({ isInternalPage }) {
           Atendimento
         </a>
         <a
+          className="header-cta header-cta--secondary"
+          href="https://ultra.acontadigital.com.br/login"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Internet Banking
+        </a>
+        <a
           className="header-cta"
           href={isInternalPage ? '/' : '#contratacao'}
           onClick={

@@ -2277,7 +2277,20 @@ footer {
 }
 
 .nav-services-item {
-
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.93rem;
+  font-weight: 700;
+  gap: 12px;
+  padding: 8px 12px;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+  width: 100%;
+}
 .nav-services-item:hover {
   background: var(--mint);
   color: var(--blue);

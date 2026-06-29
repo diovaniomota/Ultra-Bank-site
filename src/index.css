@@ -1169,7 +1169,7 @@ footer {
 }
 
 .footer-grid {
-  grid-template-columns: minmax(240px, 2fr) repeat(3, minmax(150px, 1fr));
+  grid-template-columns: minmax(200px, 1.6fr) repeat(4, minmax(130px, 1fr));
   margin-bottom: 44px;
 }
 
@@ -1301,7 +1301,7 @@ footer {
   .contract-section,
   .about-grid,
   .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .account-layout,
@@ -2037,5 +2037,110 @@ footer {
 
   .stream-banner-content h2 {
     font-size: 2.2rem;
+  }
+}
+
+/* ─── Nav Services Dropdown ─────────────────────────────────────────────────────── */
+
+.nav-services-wrap {
+  position: relative;
+}
+
+.nav-services-trigger {
+  align-items: center;
+  color: #45556f;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.93rem;
+  font-weight: 800;
+  gap: 4px;
+}
+
+.nav-services-trigger:hover {
+  color: var(--blue);
+}
+
+.nav-chevron {
+  transition: transform 0.2s ease;
+  transform: rotate(90deg);
+}
+
+.nav-chevron.open {
+  transform: rotate(270deg);
+}
+
+.nav-services-dropdown {
+  animation: dropdownIn 0.18s ease;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(8, 23, 44, 0.14);
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(2, 1fr);
+  left: 50%;
+  min-width: 340px;
+  padding: 8px;
+  position: absolute;
+  top: calc(100% + 12px);
+  transform: translateX(-50%);
+  z-index: 200;
+}
+
+.nav-services-dropdown::before {
+  border-color: transparent transparent var(--line) transparent;
+  border-style: solid;
+  border-width: 0 7px 7px 7px;
+  content: '';
+  height: 0;
+  left: 50%;
+  position: absolute;
+  top: -7px;
+  transform: translateX(-50%);
+  width: 0;
+}
+
+.nav-services-item {
+  align-items: center;
+  border-radius: 8px;
+  color: var(--navy);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 10px;
+  padding: 10px 12px;
+  text-align: left;
+  transition: background 0.15s;
+  width: 100%;
+}
+
+.nav-services-item:hover {
+  background: var(--mint);
+  color: var(--blue);
+}
+
+.nav-services-icon {
+  align-items: center;
+  background: var(--mint);
+  border-radius: 6px;
+  color: var(--blue);
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 6px;
+}
+
+.nav-services-item:hover .nav-services-icon {
+  background: rgba(22, 61, 122, 0.12);
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 }

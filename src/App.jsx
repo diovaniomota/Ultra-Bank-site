@@ -875,6 +875,19 @@ function App() {
 }
 
 function Header({ isInternalPage }) {
+  const [servicesOpen, setServicesOpen] = useState(false);
+
+  const serviceLinks = [
+    { label: 'Conta Digital', path: '/conta-digital', icon: Landmark },
+    { label: 'Ultra Connect', path: '/ultra-connect', icon: Wifi },
+    { label: 'Fibra e TV', path: '/ultra-experience', icon: Tv },
+    { label: 'Energia Solar', path: '/energia-solar', icon: Sun },
+    { label: 'Consórcio', path: '/consorcio', icon: Car },
+    { label: 'SIM Móvel', path: '/sim-movel', icon: Smartphone },
+    { label: 'Ultra Club', path: '/ultra-club', icon: Award },
+    { label: 'Ultra Stream', path: '/ultra-stream', icon: MonitorPlay },
+  ];
+
   return (
     <header className="site-header">
       <button className="brand-link" type="button" onClick={() => navigateTo('/')}>
@@ -898,6 +911,40 @@ function Header({ isInternalPage }) {
             {item.label}
           </a>
         ))}
+
+        <div
+          className="nav-services-wrap"
+          onMouseEnter={() => setServicesOpen(true)}
+          onMouseLeave={() => setServicesOpen(false)}
+        >
+          <button type="button" className="nav-services-trigger">
+            Serviços
+            <ChevronRight size={14} className={`nav-chevron ${servicesOpen ? 'open' : ''}`} />
+          </button>
+
+          {servicesOpen && (
+            <div className="nav-services-dropdown" role="menu">
+              {serviceLinks.map((link) => {
+                const SIcon = link.icon;
+                return (
+                  <button
+                    key={link.path}
+                    type="button"
+                    role="menuitem"
+                    className="nav-services-item"
+                    onClick={() => { setServicesOpen(false); navigateTo(link.path); }}
+                  >
+                    <span className="nav-services-icon">
+                      <SIcon size={16} />
+                    </span>
+                    {link.label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
         <button type="button" onClick={() => navigateTo('/sobre')}>
           Sobre nós
         </button>
@@ -1693,6 +1740,18 @@ function Footer() {
           >
             Benefícios
           </a>
+        </div>
+
+        <div className="footer-links">
+          <h4>Serviços</h4>
+          <button type="button" onClick={() => navigateTo('/conta-digital')}>Conta Digital</button>
+          <button type="button" onClick={() => navigateTo('/ultra-connect')}>Ultra Connect</button>
+          <button type="button" onClick={() => navigateTo('/ultra-experience')}>Fibra e TV</button>
+          <button type="button" onClick={() => navigateTo('/energia-solar')}>Energia Solar</button>
+          <button type="button" onClick={() => navigateTo('/consorcio')}>Consórcio</button>
+          <button type="button" onClick={() => navigateTo('/sim-movel')}>SIM Móvel</button>
+          <button type="button" onClick={() => navigateTo('/ultra-club')}>Ultra Club</button>
+          <button type="button" onClick={() => navigateTo('/ultra-stream')}>Ultra Stream</button>
         </div>
 
         <div className="footer-links">

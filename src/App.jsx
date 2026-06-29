@@ -75,7 +75,7 @@ const solutions = [
   },
   {
     id: 'fibra-tv',
-    icon: Wifi,
+    icon: Tv,
     eyebrow: 'Internet + entretenimento',
     title: 'Ultra Experience',
     text: 'Fibra 700 Mb, TV com 60 canais e canais como Sportv, Premiere e Telecine.',
@@ -97,7 +97,7 @@ const solutions = [
 ];
 
 const extraServices = [
-  { icon: ShoppingBag, title: 'SIM Móvel', text: 'Ofertas, orçamentos e compras com vantagens para clientes Ultra.' },
+  { icon: Smartphone, title: 'SIM Móvel', text: 'Ofertas, orçamentos e compras com vantagens para clientes Ultra.' },
   { icon: Gift, title: 'Ultra Club', text: 'Pontos, cashback e benefícios que crescem com o uso dos serviços.' },
 ];
 

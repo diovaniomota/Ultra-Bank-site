@@ -1975,6 +1975,9 @@ footer {
 }
 
 .service-hero-content {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
   max-width: 780px;
   position: relative;
   z-index: 1;
@@ -2263,20 +2266,17 @@ footer {
   width: 0;
 }
 
-.nav-services-item {
-  align-items: center;
-  border-radius: 8px;
-  color: var(--navy);
-  cursor: pointer;
-  display: flex;
-  font-size: 0.88rem;
-  font-weight: 700;
-  gap: 10px;
-  padding: 10px 12px;
-  text-align: left;
-  transition: background 0.15s;
-  width: 100%;
+/* Ponte invisível para o hover não falhar no gap */
+.nav-services-dropdown::after {
+  content: '';
+  height: 12px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: -12px;
 }
+
+.nav-services-item {
 
 .nav-services-item:hover {
   background: var(--mint);

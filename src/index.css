@@ -816,13 +816,22 @@ h3 {
 }
 
 .feature-card svg,
-.solution-card svg,
-.extra-services svg {
+.solution-card > svg,
+.extra-services article > svg {
   background: var(--mint);
   border-radius: 8px;
   box-sizing: content-box;
   color: var(--teal);
   padding: 9px;
+}
+
+.solution-detail-btn svg,
+.solution-hire-btn svg,
+.extra-services .solution-detail-btn svg {
+  background: none;
+  border-radius: 0;
+  color: inherit;
+  padding: 0;
 }
 
 .feature-card svg {

@@ -1354,7 +1354,6 @@ function HomePage({ formType, selectedForm, setFormType }) {
                     onClick={(e) => { e.preventDefault(); document.getElementById('contratacao')?.scrollIntoView({ behavior: 'smooth' }); }}
                   >
                     Contratar
-                    <ArrowRight size={14} />
                   </a>
                 </div>
               </article>

@@ -812,12 +812,119 @@ function DownloadPage() {
 
 function MobileFab() {
   const [open, setOpen] = useState(false);
+  const [servicesExpanded, setServicesExpanded] = useState(false);
+
+  const mobileServiceLinks = [
+    { label: 'Conta Digital', path: '/conta-digital', icon: Landmark },
+    { label: 'Ultra Connect', path: '/ultra-connect', icon: Wifi },
+    { label: 'Fibra e TV', path: '/ultra-experience', icon: Tv },
+    { label: 'Energia Solar', path: '/energia-solar', icon: Sun },
+    { label: 'Consórcio', path: '/consorcio', icon: Car },
+    { label: 'SIM Móvel', path: '/sim-movel', icon: Smartphone },
+    { label: 'Ultra Club', path: '/ultra-club', icon: Award },
+    { label: 'Ultra Stream', path: '/ultra-stream', icon: MonitorPlay },
+  ];
+
+  const close = (path) => {
+    setOpen(false);
+    setServicesExpanded(false);
+    if (path) navigateTo(path);
+  };
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
 
   return (
     <div className="mobile-fab-wrap">
+      <button
+        className={`mobile-fab-btn ${open ? 'open' : ''}`}
+        aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+        onClick={() => setOpen(!open)}
+      >
+        {open ? '✕' : '☰'}
+      </button>
+
       {open && (
-        <div className="mobile-fab-menu">
+        <div className="mobile-overlay" onClick={() => close()} aria-hidden="true" />
+      )}
+
+      <div className={`mobile-drawer ${open ? 'mobile-drawer--open' : ''}`} aria-hidden={!open}>
+        <div className="mobile-drawer-header">
+          <img src={ultraBankLogo} alt="Ultra Bank" className="mobile-drawer-logo" />
+          <button className="mobile-drawer-close" onClick={() => close()} aria-label="Fechar menu">
+            ✕
+          </button>
+        </div>
+
+        <nav className="mobile-drawer-nav">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              key={item.label}
+              className="mobile-drawer-link"
+              onClick={(e) => { e.preventDefault(); close(`/${item.href}`); }}
+            >
+              {item.label}
+            </a>
+          ))}
+
+          <div className="mobile-drawer-group">
+            <button
+              className="mobile-drawer-link mobile-drawer-link--group"
+              type="button"
+              onClick={() => setServicesExpanded(!servicesExpanded)}
+            >
+              Serviços
+              <ChevronRight
+                size={16}
+                className={`mobile-drawer-chevron ${servicesExpanded ? 'open' : ''}`}
+              />
+            </button>
+
+            {servicesExpanded && (
+              <div className="mobile-drawer-services">
+                {mobileServiceLinks.map((link) => {
+                  const SIcon = link.icon;
+                  return (
+                    <button
+                      key={link.path}
+                      type="button"
+                      className="mobile-drawer-service-item"
+                      onClick={() => close(link.path)}
+                    >
+                      <span className="mobile-drawer-service-icon">
+                        <SIcon size={15} />
+                      </span>
+                      {link.label}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          <button
+            className="mobile-drawer-link"
+            type="button"
+            onClick={() => close('/sobre')}
+          >
+            Sobre nós
+          </button>
+
           <a
+            className="mobile-drawer-link"
+            href="/#suporte"
+            onClick={(e) => { e.preventDefault(); close('/#suporte'); }}
+          >
+            Atendimento
+          </a>
+        </nav>
+
+        <div className="mobile-drawer-ctas">
+          <a
+            className="mobile-drawer-cta mobile-drawer-cta--secondary"
             href="https://ultra.acontadigital.com.br/login"
             target="_blank"
             rel="noopener noreferrer"
@@ -825,14 +932,16 @@ function MobileFab() {
           >
             Internet Banking
           </a>
-          <a href="/abrir-conta" onClick={(e) => { e.preventDefault(); setOpen(false); navigateTo('/abrir-conta'); }}>
+          <button
+            className="mobile-drawer-cta"
+            type="button"
+            onClick={() => close('/abrir-conta')}
+          >
             Abrir conta
-          </a>
+            <ArrowRight size={16} />
+          </button>
         </div>
-      )}
-      <button className="mobile-fab-btn" onClick={() => setOpen(!open)}>
-        {open ? '✕' : '☰'}
-      </button>
+      </div>
     </div>
   );
 }

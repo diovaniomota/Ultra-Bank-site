@@ -62,10 +62,10 @@ button {
   background: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid var(--line);
   display: grid;
-  gap: 24px;
+  gap: 16px;
   grid-template-columns: auto 1fr auto;
-  min-height: 92px;
-  padding: 8px max(24px, calc((100vw - 1180px) / 2));
+  min-height: 72px;
+  padding: 6px max(20px, calc((100vw - 1280px) / 2));
   position: sticky;
   top: 0;
   z-index: 50;
@@ -91,7 +91,7 @@ button {
 .main-nav {
   align-items: center;
   display: flex;
-  gap: 26px;
+  gap: 16px;
   justify-content: center;
 }
 
@@ -100,7 +100,7 @@ button {
 .header-actions a {
   color: #45556f;
   cursor: pointer;
-  font-size: 0.93rem;
+  font-size: 0.875rem;
   font-weight: 800;
 }
 

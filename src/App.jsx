@@ -1346,11 +1346,15 @@ function HomePage({ formType, selectedForm, setFormType }) {
                     onClick={() => navigateTo(solution.path)}
                   >
                     Saiba mais
-                    <ChevronRight size={16} />
+                    <ChevronRight size={14} />
                   </button>
-                  <a href="#contratacao">
+                  <a
+                    className="solution-hire-btn"
+                    href="#contratacao"
+                    onClick={(e) => { e.preventDefault(); document.getElementById('contratacao')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  >
                     Contratar
-                    <ArrowRight size={16} />
+                    <ArrowRight size={14} />
                   </a>
                 </div>
               </article>

@@ -863,6 +863,8 @@ h3 {
 }
 
 .solution-card {
+  display: flex;
+  flex-direction: column;
   min-height: 310px;
 }
 
@@ -875,7 +877,6 @@ h3 {
   text-transform: uppercase;
 }
 
-.solution-card a,
 .benefit-card a {
   align-items: center;
   color: var(--blue);
@@ -1824,31 +1825,56 @@ footer {
 
 .solution-card-actions {
   align-items: center;
+  border-top: 1px solid var(--line);
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: auto;
+  padding-top: 16px;
 }
 
 .solution-detail-btn {
   align-items: center;
+  background: transparent;
   border: 1.5px solid var(--line);
   border-radius: 999px;
   color: var(--navy);
   cursor: pointer;
   display: inline-flex;
-  font-size: 0.88rem;
-  font-weight: 800;
-  gap: 5px;
-  min-height: 34px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  gap: 4px;
+  min-height: 36px;
   padding: 0 14px;
-  transition: background 0.18s, border-color 0.18s, color 0.18s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
 }
 
 .solution-detail-btn:hover {
   background: var(--mint);
   border-color: var(--blue);
   color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.solution-hire-btn {
+  align-items: center;
+  background: var(--navy);
+  border-radius: 999px;
+  color: var(--white) !important;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.85rem;
+  font-weight: 800;
+  gap: 5px;
+  min-height: 36px;
+  padding: 0 16px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.solution-hire-btn:hover {
+  background: var(--blue);
+  box-shadow: 0 6px 18px rgba(22, 61, 122, 0.25);
+  transform: translateY(-1px);
 }
 
 /* ─── Stream Banner ──────────────────────────────────────────────────────────── */

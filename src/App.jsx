@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
   ArrowRight,
+  Award,
   Building2,
   CalendarCheck,
   Car,
@@ -14,12 +15,14 @@ import {
   Landmark,
   LockKeyhole,
   Mail,
+  MonitorPlay,
   PlayCircle,
   PlusCircle,
   Router,
   Scale,
   ShieldCheck,
   ShoppingBag,
+  Signal,
   Smartphone,
   Sun,
   Tv,
@@ -39,7 +42,7 @@ import outdoorLogo from './assets/infinity_banner.png';
 
 const navItems = [
   { label: 'Soluções', href: '#solucoes' },
-  { label: 'Planos', href: '#planos' },
+  { label: 'Telecomunicações', href: '#planos' },
   { label: 'Benefícios', href: '#beneficios' },
   { label: 'Contratar', href: '#contratacao' },
 ];
@@ -51,12 +54,12 @@ const heroHighlights = [
 ];
 
 const quickLinks = [
-  ['Conta digital', Landmark, '#solucoes'],
-  ['Ultra Connect', Wifi, '#planos'],
-  ['Fibra e TV', Tv, '#planos'],
-  ['Energia Solar', Sun, '#energia-solar'],
-  ['Consórcio', Car, '#consorcio'],
-  ['SIM Móvel', Smartphone, '#contratacao'],
+  ['Conta digital', Landmark, '/conta-digital'],
+  ['Ultra Connect', Wifi, '/ultra-connect'],
+  ['Fibra e TV', Tv, '/ultra-experience'],
+  ['Energia Solar', Sun, '/energia-solar'],
+  ['Consórcio', Car, '/consorcio'],
+  ['SIM Móvel', Smartphone, '/sim-movel'],
 ];
 
 const accountFeatures = [
@@ -72,6 +75,7 @@ const solutions = [
     eyebrow: 'Fibra',
     title: 'Ultra Connect',
     text: 'Conexão essencial com 700 Mb de internet na fibra e estabilidade para toda a casa.',
+    path: '/ultra-connect',
   },
   {
     id: 'fibra-tv',
@@ -79,6 +83,7 @@ const solutions = [
     eyebrow: 'Internet + entretenimento',
     title: 'Ultra Experience',
     text: 'Fibra 700 Mb, TV com 60 canais e canais como Sportv, Premiere e Telecine.',
+    path: '/ultra-experience',
   },
   {
     id: 'energia-solar',
@@ -86,6 +91,7 @@ const solutions = [
     eyebrow: 'Economia',
     title: 'Energia Solar',
     text: 'Modelo por assinatura para reduzir a conta de luz sem instalar painéis.',
+    path: '/energia-solar',
   },
   {
     id: 'consorcio',
@@ -93,12 +99,14 @@ const solutions = [
     eyebrow: 'Planejamento',
     title: 'Consórcio',
     text: 'Carro, moto, imóvel ou serviço com simulação online e acompanhamento simples.',
+    path: '/consorcio',
   },
 ];
 
 const extraServices = [
-  { icon: Smartphone, title: 'SIM Móvel', text: 'Ofertas, orçamentos e compras com vantagens para clientes Ultra.' },
-  { icon: Gift, title: 'Ultra Club', text: 'Pontos, cashback e benefícios que crescem com o uso dos serviços.' },
+  { icon: Smartphone, title: 'SIM Móvel', text: 'Ofertas, orçamentos e compras com vantagens para clientes Ultra.', path: '/sim-movel' },
+  { icon: Award, title: 'Ultra Club', text: 'Pontos, cashback e benefícios que crescem com o uso dos serviços.', path: '/ultra-club' },
+  { icon: MonitorPlay, title: 'Ultra Stream', text: 'Plataforma de streaming com conteúdo exclusivo e canais ao vivo.', path: '/ultra-stream' },
 ];
 
 const plans = [
@@ -490,6 +498,172 @@ const supportPages = {
   },
 };
 
+const servicePages = {
+  'conta-digital': {
+    icon: Landmark,
+    eyebrow: 'Conta Digital',
+    title: 'Sua vida financeira em um só lugar.',
+    subtitle:
+      'Abra sua conta digital PF ou PJ com Pix, pagamentos, cartão Ultra e acesso completo ao ecossistema de serviços do Ultra Bank.',
+    featuresTitle: 'Tudo que você precisa na sua conta',
+    features: [
+      { icon: Zap, label: 'Pix gratuito e ilimitado' },
+      { icon: CreditCard, label: 'Cartão Ultra com benefícios' },
+      { icon: ShieldCheck, label: 'Segurança em camadas' },
+      { icon: Smartphone, label: 'Gestão completa pelo app' },
+      { icon: Headphones, label: 'Atendimento digital humanizado' },
+      { icon: HandCoins, label: 'Disponível para PF e PJ' },
+    ],
+    cta: 'Abrir minha conta',
+    whatsappMsg: 'Olá! Quero abrir minha conta digital no Ultra Bank. Podem me ajudar?',
+  },
+  'ultra-connect': {
+    icon: Wifi,
+    eyebrow: 'Internet na Fibra',
+    title: 'Ultra Connect — Velocidade que transforma sua casa.',
+    subtitle:
+      '700 Mb de internet na fibra óptica com conexão estável, ideal para streaming, jogos online e home office.',
+    featuresTitle: 'Conexão sem concessões',
+    features: [
+      { icon: Zap, label: '700 Mb de velocidade' },
+      { icon: ShieldCheck, label: 'Conexão estável e segura' },
+      { icon: Tv, label: 'Ideal para streaming e jogos' },
+      { icon: Wifi, label: 'Wi-Fi para toda a casa' },
+      { icon: Headphones, label: 'Suporte técnico dedicado' },
+      { icon: CheckCircle2, label: 'Instalação profissional' },
+    ],
+    plans: [
+      {
+        title: 'Ultra Connect',
+        price: 'R$ 89,90/mês',
+        items: ['Internet na fibra 700 Mb', 'Conexão estável para toda a casa', 'Ideal para streaming e jogos'],
+      },
+    ],
+    cta: 'Contratar Ultra Connect',
+    whatsappMsg: 'Olá! Tenho interesse no plano Ultra Connect de 700 Mb. Gostaria de mais informações.',
+  },
+  'ultra-experience': {
+    icon: Tv,
+    eyebrow: 'Internet + Entretenimento',
+    title: 'Ultra Experience — Fibra e TV em uma única assinatura.',
+    subtitle:
+      'Internet 700 Mb na fibra com TV por assinatura de 60 canais, incluindo Sportv, Premiere e Telecine — tudo em um só plano.',
+    featuresTitle: 'A combinação perfeita para a família',
+    features: [
+      { icon: Wifi, label: '700 Mb de internet na fibra' },
+      { icon: Tv, label: 'TV com 60 canais inclusos' },
+      { icon: PlayCircle, label: 'Sportv, Premiere e Telecine' },
+      { icon: ShieldCheck, label: 'Conexão estável e segura' },
+      { icon: Headphones, label: 'Suporte técnico dedicado' },
+      { icon: CheckCircle2, label: 'Instalação profissional' },
+    ],
+    plans: [
+      {
+        title: 'Ultra Experience',
+        price: 'R$ 119,90/mês',
+        items: ['Internet na fibra 700 Mb', 'TV com 60 canais', 'Inclui Sportv, Premiere e Telecine'],
+      },
+      {
+        title: 'Ultra Experience Negócios',
+        price: 'R$ 299,90/mês',
+        items: ['Internet na fibra 700 Mb', 'TV com 60 canais', 'Propaganda no canal do Ultra Bank'],
+      },
+    ],
+    cta: 'Contratar Ultra Experience',
+    whatsappMsg: 'Olá! Tenho interesse no Ultra Experience (Fibra + TV). Gostaria de mais informações.',
+  },
+  'energia-solar': {
+    icon: Sun,
+    eyebrow: 'Energia Solar',
+    title: 'Reduza sua conta de luz sem instalar nada.',
+    subtitle:
+      'Modelo por assinatura que garante economia mensal na conta de energia elétrica sem necessidade de instalar painéis solares.',
+    featuresTitle: 'Economia limpa e sem complicação',
+    features: [
+      { icon: Zap, label: 'Sem instalação de painéis' },
+      { icon: CheckCircle2, label: 'Desconto mensal na conta de luz' },
+      { icon: ShieldCheck, label: 'Tecnologia limpa e sustentável' },
+      { icon: Headphones, label: 'Suporte e acompanhamento' },
+      { icon: HandCoins, label: 'Sem obras ou manutenção' },
+      { icon: Smartphone, label: 'Controle pelo aplicativo' },
+    ],
+    cta: 'Consultar economia',
+    whatsappMsg: 'Olá! Quero saber mais sobre o plano de Energia Solar do Ultra Bank. Podem me ajudar?',
+  },
+  consorcio: {
+    icon: Car,
+    eyebrow: 'Consórcio',
+    title: 'Planeje sua grande conquista com o Ultra Bank.',
+    subtitle:
+      'Consórcio para carro, moto, imóvel ou serviço com simulação online, sem juros e acompanhamento pelo atendimento digital.',
+    featuresTitle: 'Consórcio para cada objetivo',
+    features: [
+      { icon: Car, label: 'Carro e moto' },
+      { icon: Building2, label: 'Imóveis' },
+      { icon: CheckCircle2, label: 'Contratação de serviços' },
+      { icon: HandCoins, label: 'Sem juros, apenas taxa de administração' },
+      { icon: CalendarCheck, label: 'Simulação online' },
+      { icon: Headphones, label: 'Acompanhamento digital' },
+    ],
+    cta: 'Simular consórcio',
+    whatsappMsg: 'Olá! Quero simular um consórcio no Ultra Bank. Podem me ajudar?',
+  },
+  'sim-movel': {
+    icon: Smartphone,
+    eyebrow: 'SIM Móvel',
+    title: 'Telefonia móvel integrada ao ecossistema Ultra.',
+    subtitle:
+      'Planos de celular com ofertas exclusivas para clientes Ultra Bank, cobertura nacional e controle completo pelo aplicativo.',
+    featuresTitle: 'Conectado onde estiver',
+    features: [
+      { icon: Signal, label: 'Cobertura nacional' },
+      { icon: Smartphone, label: 'Planos flexíveis por perfil' },
+      { icon: ShieldCheck, label: 'Controle pelo app Ultra Bank' },
+      { icon: CheckCircle2, label: 'Portabilidade simplificada' },
+      { icon: Gift, label: 'Chip gratuito para clientes Ultra' },
+      { icon: Zap, label: 'Ofertas exclusivas para o ecossistema' },
+    ],
+    cta: 'Consultar planos',
+    whatsappMsg: 'Olá! Quero saber mais sobre o SIM Móvel do Ultra Bank. Podem me informar?',
+  },
+  'ultra-club': {
+    icon: Award,
+    eyebrow: 'Ultra Club',
+    title: 'Seu relacionamento com o Ultra vira vantagem real.',
+    subtitle:
+      'Acumule pontos, cashback e benefícios exclusivos usando a conta digital, o cartão e os serviços do ecossistema Ultra Bank.',
+    featuresTitle: 'Quanto mais você usa, mais você ganha',
+    features: [
+      { icon: Award, label: 'Acúmulo de pontos por uso' },
+      { icon: HandCoins, label: 'Cashback em compras' },
+      { icon: Gift, label: 'Benefícios e descontos exclusivos' },
+      { icon: CheckCircle2, label: 'Categorias de relacionamento' },
+      { icon: Smartphone, label: 'Tudo integrado ao app' },
+      { icon: ShieldCheck, label: 'Programa com regras claras' },
+    ],
+    cta: 'Quero fazer parte',
+    whatsappMsg: 'Olá! Quero saber mais sobre o Ultra Club e seus benefícios. Podem me informar?',
+  },
+  'ultra-stream': {
+    icon: MonitorPlay,
+    eyebrow: 'Ultra Stream',
+    title: 'Entretenimento sem limite, direto na sua tela.',
+    subtitle:
+      'Plataforma de streaming do ecossistema Ultra Bank com conteúdo exclusivo, canais ao vivo e integração com o Ultra Experience.',
+    featuresTitle: 'Uma nova forma de assistir',
+    features: [
+      { icon: PlayCircle, label: 'Conteúdo exclusivo Ultra' },
+      { icon: Tv, label: 'Canais ao vivo incluídos' },
+      { icon: MonitorPlay, label: 'Filmes, séries e documentários' },
+      { icon: Smartphone, label: 'Compatível com todos os dispositivos' },
+      { icon: ShieldCheck, label: 'Qualidade HD e 4K' },
+      { icon: CheckCircle2, label: 'Integrado ao Ultra Experience' },
+    ],
+    cta: 'Quero conhecer o Ultra Stream',
+    whatsappMsg: 'Olá! Quero saber mais sobre o Ultra Stream. Podem me informar?',
+  },
+};
+
 const pageRoutes = {
   '/abrir-conta': 'download',
   '/sobre': 'sobre',
@@ -500,6 +674,14 @@ const pageRoutes = {
   '/politica-de-privacidade': 'privacy',
   '/contratos-e-termos': 'terms',
   '/seguranca': 'security',
+  '/conta-digital': 'conta-digital',
+  '/ultra-connect': 'ultra-connect',
+  '/ultra-experience': 'ultra-experience',
+  '/energia-solar': 'energia-solar',
+  '/consorcio': 'consorcio',
+  '/sim-movel': 'sim-movel',
+  '/ultra-club': 'ultra-club',
+  '/ultra-stream': 'ultra-stream',
 };
 
 const formOptions = {
@@ -662,6 +844,7 @@ function App() {
   const isAboutPage = page === 'sobre';
   const isDownloadPage = page === 'download';
   const contentPage = supportPages[page] ?? transparencyPages[page];
+  const servicePage = servicePages[page];
   const isInternalPage = page !== 'home';
 
   useEffect(() => {
@@ -678,6 +861,8 @@ function App() {
         <DownloadPage />
       ) : isAboutPage ? (
         <AboutPage />
+      ) : servicePage ? (
+        <ServicePage pageData={servicePage} />
       ) : contentPage ? (
         <TransparencyPage pageData={contentPage} />
       ) : (
@@ -864,13 +1049,48 @@ function HomePage({ formType, selectedForm, setFormType }) {
       </section>
 
       <section className="quick-nav" aria-label="Atalhos de produtos">
-        {quickLinks.map(([label, Icon, href]) => (
-          <a href={href} key={label}>
+        {quickLinks.map(([label, Icon, path]) => (
+          <a
+            href={path}
+            key={label}
+            onClick={(e) => { e.preventDefault(); navigateTo(path); }}
+          >
             <Icon size={20} />
             <span>{label}</span>
             <ChevronRight size={16} />
           </a>
         ))}
+      </section>
+
+      <section className="stream-banner" id="ultra-stream">
+        <div className="stream-banner-content">
+          <span className="stream-tag">Novo serviço</span>
+          <h2>Ultra Stream</h2>
+          <p>
+            Entretenimento sem limite: conteúdo exclusivo, canais ao vivo e filmes — tudo integrado ao ecossistema Ultra Bank.
+          </p>
+          <div className="stream-banner-actions">
+            <button
+              className="stream-cta-btn"
+              type="button"
+              onClick={() => navigateTo('/ultra-stream')}
+            >
+              Conhecer Ultra Stream
+              <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+        <div className="stream-banner-icons" aria-hidden="true">
+          <div className="stream-icon-circle stream-icon-sm">
+            <PlayCircle size={24} />
+          </div>
+          <div className="stream-icon-circle stream-icon-lg">
+            <MonitorPlay size={40} />
+          </div>
+          <div className="stream-icon-circle stream-icon-md">
+            <Tv size={30} />
+          </div>
+        </div>
       </section>
 
       <section className="section account-section" id="solucoes">
@@ -987,10 +1207,20 @@ function HomePage({ formType, selectedForm, setFormType }) {
                 <span>{solution.eyebrow}</span>
                 <h3>{solution.title}</h3>
                 <p>{solution.text}</p>
-                <a href="#contratacao">
-                  Contratar
-                  <ArrowRight size={16} />
-                </a>
+                <div className="solution-card-actions">
+                  <button
+                    className="solution-detail-btn"
+                    type="button"
+                    onClick={() => navigateTo(solution.path)}
+                  >
+                    Saiba mais
+                    <ChevronRight size={16} />
+                  </button>
+                  <a href="#contratacao">
+                    Contratar
+                    <ArrowRight size={16} />
+                  </a>
+                </div>
               </article>
             );
           })}
@@ -1005,6 +1235,14 @@ function HomePage({ formType, selectedForm, setFormType }) {
                 <Icon size={22} />
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
+                <button
+                  className="solution-detail-btn"
+                  type="button"
+                  onClick={() => navigateTo(service.path)}
+                >
+                  Saiba mais
+                  <ChevronRight size={16} />
+                </button>
               </article>
             );
           })}
@@ -1312,6 +1550,97 @@ function TransparencyPage({ pageData }) {
             </div>
           </article>
         </aside>
+      </section>
+    </main>
+  );
+}
+
+function ServicePage({ pageData }) {
+  const Icon = pageData.icon;
+
+  return (
+    <main>
+      <section className="service-hero">
+        <div className="service-hero-content">
+          <div className="service-hero-icon">
+            <Icon size={36} />
+          </div>
+          <span className="eyebrow">{pageData.eyebrow}</span>
+          <h1>{pageData.title}</h1>
+          <p>{pageData.subtitle}</p>
+          <a
+            href={getWhatsAppUrl(pageData.whatsappMsg)}
+            target="_blank"
+            rel="noreferrer"
+            className="service-hero-cta"
+          >
+            {pageData.cta}
+            <ArrowRight size={18} />
+          </a>
+        </div>
+      </section>
+
+      <section className="section service-features-section">
+        <div className="section-intro compact">
+          <span className="eyebrow">{pageData.eyebrow}</span>
+          <h2>{pageData.featuresTitle}</h2>
+        </div>
+        <div className="service-features-grid">
+          {pageData.features.map((feature) => {
+            const FIcon = feature.icon;
+            return (
+              <div key={feature.label} className="service-feature-card">
+                <div className="service-feature-icon">
+                  <FIcon size={20} />
+                </div>
+                <span>{feature.label}</span>
+              </div>
+            );
+          })}
+        </div>
+
+        {pageData.plans && (
+          <div className="service-plans-grid">
+            {pageData.plans.map((plan) => (
+              <div key={plan.title} className="service-plan-card">
+                <h3>{plan.title}</h3>
+                <strong className="service-plan-price">{plan.price}</strong>
+                <ul>
+                  {plan.items.map((item) => (
+                    <li key={item}>
+                      <CheckCircle2 size={16} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={getWhatsAppUrl(`Olá! Tenho interesse no plano ${plan.title}. Gostaria de mais informações.`)}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Contratar plano
+                  <ArrowRight size={16} />
+                </a>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      <section className="service-cta-band">
+        <div>
+          <h2>Pronto para começar com o Ultra Bank?</h2>
+          <p>Fale com nossa equipe e descubra como contratar de forma simples e rápida.</p>
+        </div>
+        <a
+          href={getWhatsAppUrl(pageData.whatsappMsg)}
+          target="_blank"
+          rel="noreferrer"
+          className="service-hero-cta service-hero-cta--dark"
+        >
+          <Headphones size={18} />
+          Falar com especialista
+        </a>
       </section>
     </main>
   );

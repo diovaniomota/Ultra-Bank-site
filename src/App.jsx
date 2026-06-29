@@ -77,6 +77,7 @@ const solutions = [
     title: 'Ultra Connect',
     text: 'Conexão essencial com 700 Mb de internet na fibra e estabilidade para toda a casa.',
     path: '/ultra-connect',
+    formKey: 'fibra_tv',
   },
   {
     id: 'fibra-tv',
@@ -85,6 +86,7 @@ const solutions = [
     title: 'Ultra Experience',
     text: 'Fibra 700 Mb, TV com 60 canais e canais como Sportv, Premiere e Telecine.',
     path: '/ultra-experience',
+    formKey: 'fibra_tv',
   },
   {
     id: 'energia-solar',
@@ -93,6 +95,7 @@ const solutions = [
     title: 'Energia Solar',
     text: 'Modelo por assinatura para reduzir a conta de luz sem instalar painéis.',
     path: '/energia-solar',
+    formKey: 'solar',
   },
   {
     id: 'consorcio',
@@ -101,13 +104,14 @@ const solutions = [
     title: 'Consórcio',
     text: 'Carro, moto, imóvel ou serviço com simulação online e acompanhamento simples.',
     path: '/consorcio',
+    formKey: 'consorcio',
   },
 ];
 
 const extraServices = [
-  { icon: Smartphone, title: 'SIM Móvel', text: 'Ofertas, orçamentos e compras com vantagens para clientes Ultra.', path: '/sim-movel' },
-  { icon: Award, title: 'Ultra Club', text: 'Pontos, cashback e benefícios que crescem com o uso dos serviços.', path: '/ultra-club' },
-  { icon: MonitorPlay, title: 'Ultra Stream', text: 'Plataforma de streaming com conteúdo exclusivo e canais ao vivo.', path: '/ultra-stream' },
+  { icon: Smartphone, title: 'SIM Móvel', text: 'Ofertas, orçamentos e compras com vantagens para clientes Ultra.', path: '/sim-movel', formKey: 'cobertura' },
+  { icon: Award, title: 'Ultra Club', text: 'Pontos, cashback e benefícios que crescem com o uso dos serviços.', path: '/ultra-club', formKey: 'fibra_tv' },
+  { icon: MonitorPlay, title: 'Ultra Stream', text: 'Plataforma de streaming com conteúdo exclusivo e canais ao vivo.', path: '/ultra-stream', formKey: 'fibra_tv' },
 ];
 
 const plans = [
@@ -1351,7 +1355,11 @@ function HomePage({ formType, selectedForm, setFormType }) {
                   <a
                     className="solution-hire-btn"
                     href="#contratacao"
-                    onClick={(e) => { e.preventDefault(); document.getElementById('contratacao')?.scrollIntoView({ behavior: 'smooth' }); }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setFormType(solution.formKey);
+                      setTimeout(() => document.getElementById('contratacao')?.scrollIntoView({ behavior: 'smooth' }), 50);
+                    }}
                   >
                     Contratar
                   </a>
@@ -1370,14 +1378,27 @@ function HomePage({ formType, selectedForm, setFormType }) {
                 <Icon size={22} />
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
-                <button
-                  className="solution-detail-btn"
-                  type="button"
-                  onClick={() => navigateTo(service.path)}
-                >
-                  Saiba mais
-                  <ChevronRight size={16} />
-                </button>
+                <div className="solution-card-actions">
+                  <button
+                    className="solution-detail-btn"
+                    type="button"
+                    onClick={() => navigateTo(service.path)}
+                  >
+                    Saiba mais
+                    <ChevronRight size={14} />
+                  </button>
+                  <a
+                    className="solution-hire-btn"
+                    href="#contratacao"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setFormType(service.formKey);
+                      setTimeout(() => document.getElementById('contratacao')?.scrollIntoView({ behavior: 'smooth' }), 50);
+                    }}
+                  >
+                    Contratar
+                  </a>
+                </div>
               </article>
             );
           })}

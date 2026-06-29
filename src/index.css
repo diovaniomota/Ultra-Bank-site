@@ -900,6 +900,11 @@ h3 {
   margin-top: 16px;
 }
 
+.extra-services article {
+  display: flex;
+  flex-direction: column;
+}
+
 .plans-section {
   background: linear-gradient(180deg, #f8fbf9 0%, #edf5ef 100%);
 }

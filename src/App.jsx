@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   ArrowRight,
   Award,
@@ -837,21 +838,22 @@ function MobileFab() {
   }, [open]);
 
   return (
-    <div className="mobile-fab-wrap">
-      <button
-        className={`mobile-fab-btn ${open ? 'open' : ''}`}
-        aria-label={open ? 'Fechar menu' : 'Abrir menu'}
-        onClick={() => setOpen(!open)}
-      >
-        {open ? '✕' : '☰'}
-      </button>
+    <>
+      <div className="mobile-fab-wrap">
+        <button
+          className={`mobile-fab-btn ${open ? 'open' : ''}`}
+          aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+          onClick={() => setOpen(!open)}
+        >
+          {open ? '✕' : '☰'}
+        </button>
+      </div>
 
-      {open && (
-        <div className="mobile-overlay" onClick={() => close()} aria-hidden="true" />
-      )}
-
-      <div className={`mobile-drawer ${open ? 'mobile-drawer--open' : ''}`} aria-hidden={!open}>
-        <div className="mobile-drawer-header">
+      {typeof document !== 'undefined' && createPortal(
+        <>
+          {open && <div className="mobile-overlay" onClick={() => close()} aria-hidden="true" />}
+          <div className={`mobile-drawer ${open ? 'mobile-drawer--open' : ''}`} aria-hidden={!open}>
+            <div className="mobile-drawer-header">
           <img src={ultraBankLogo} alt="Ultra Bank" className="mobile-drawer-logo" />
           <button className="mobile-drawer-close" onClick={() => close()} aria-label="Fechar menu">
             ✕
@@ -942,7 +944,10 @@ function MobileFab() {
           </button>
         </div>
       </div>
-    </div>
+      </>,
+      document.body
+    )}
+    </>
   );
 }
 

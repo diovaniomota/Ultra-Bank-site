@@ -22,6 +22,7 @@ import {
   ShoppingBag,
   Smartphone,
   Sun,
+  Tv,
   WalletCards,
   Wifi,
   Zap,
@@ -50,12 +51,12 @@ const heroHighlights = [
 ];
 
 const quickLinks = [
-  ['Conta digital', WalletCards, '#solucoes'],
+  ['Conta digital', Landmark, '#solucoes'],
   ['Ultra Connect', Wifi, '#planos'],
-  ['Fibra e TV', Wifi, '#planos'],
+  ['Fibra e TV', Tv, '#planos'],
   ['Energia Solar', Sun, '#energia-solar'],
   ['Consórcio', Car, '#consorcio'],
-  ['SIM Móvel', ShoppingBag, '#contratacao'],
+  ['SIM Móvel', Smartphone, '#contratacao'],
 ];
 
 const accountFeatures = [

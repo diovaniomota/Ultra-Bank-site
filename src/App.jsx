@@ -1223,36 +1223,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
         ))}
       </section>
 
-      <section className="stream-banner" id="ultra-stream">
-        <div className="stream-banner-content">
-          <span className="stream-tag">Novo serviço</span>
-          <h2>Ultra Stream</h2>
-          <p>
-            Entretenimento sem limite: conteúdo exclusivo, canais ao vivo e filmes — tudo integrado ao ecossistema Ultra Bank.
-          </p>
-          <div className="stream-banner-actions">
-            <button
-              className="stream-cta-btn"
-              type="button"
-              onClick={() => navigateTo('/ultra-stream')}
-            >
-              Conhecer Ultra Stream
-              <ArrowRight size={18} />
-            </button>
-          </div>
-        </div>
-        <div className="stream-banner-icons" aria-hidden="true">
-          <div className="stream-icon-circle stream-icon-sm">
-            <PlayCircle size={24} />
-          </div>
-          <div className="stream-icon-circle stream-icon-lg">
-            <MonitorPlay size={40} />
-          </div>
-          <div className="stream-icon-circle stream-icon-md">
-            <Tv size={30} />
-          </div>
-        </div>
-      </section>
+
 
       <section className="section account-section" id="solucoes">
         <div className="section-intro">

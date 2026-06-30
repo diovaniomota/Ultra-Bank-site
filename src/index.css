@@ -1321,10 +1321,6 @@ h3 {
   margin-top: 10px;
 }
 
-.transparency-summary {
-  position: sticky;
-  top: 112px;
-}
 
 .transparency-summary > svg {
   background: var(--mint);
@@ -2001,17 +1997,31 @@ footer {
 .service-hero {
   background: var(--navy);
   color: var(--white);
+  min-height: 520px;
   overflow: hidden;
   padding: 96px max(24px, calc((100vw - 1180px) / 2));
   position: relative;
 }
 
 .service-hero::before {
-  background: radial-gradient(ellipse at 80% 20%, rgba(22, 61, 122, 0.5) 0%, transparent 55%);
+  background:
+    linear-gradient(90deg, rgba(8, 23, 44, 0.95) 0%, rgba(8, 23, 44, 0.82) 45%, rgba(8, 23, 44, 0.35) 72%, rgba(8, 23, 44, 0.65) 100%),
+    linear-gradient(180deg, rgba(8, 23, 44, 0.2) 0%, rgba(8, 23, 44, 0.85) 100%);
   content: '';
   inset: 0;
   pointer-events: none;
   position: absolute;
+  z-index: 1;
+}
+
+.service-hero-image {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: 65% center;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
 }
 
 .service-hero-content {
@@ -2020,7 +2030,7 @@ footer {
   flex-direction: column;
   max-width: 780px;
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
 
 .service-hero-icon {

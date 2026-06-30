@@ -40,6 +40,25 @@ import consorcioImage from './assets/consorcio.png';
 import ultraClubImage from './assets/ultra_club.png';
 import infinitasLogo from './assets/infinitas_possibilidades.png';
 import outdoorLogo from './assets/infinity_banner.png';
+import bgContaDigital from './assets/bg_conta_digital.jpg';
+import bgUltraConnect from './assets/bg_ultra_connect.jpg';
+import bgUltraExperience from './assets/bg_ultra_experience.jpg';
+import bgEnergiaSolar from './assets/bg_energia_solar.jpg';
+import bgConsorcio from './assets/bg_consorcio.jpg';
+import bgSimMovel from './assets/bg_sim_movel.jpg';
+import bgUltraClub from './assets/bg_ultra_club.jpg';
+import bgUltraStream from './assets/bg_ultra_stream.jpg';
+
+const serviceBg = {
+  'conta-digital': bgContaDigital,
+  'ultra-connect': bgUltraConnect,
+  'ultra-experience': bgUltraExperience,
+  'energia-solar': bgEnergiaSolar,
+  'consorcio': bgConsorcio,
+  'sim-movel': bgSimMovel,
+  'ultra-club': bgUltraClub,
+  'ultra-stream': bgUltraStream,
+};
 
 const navItems = [
   { label: 'Soluções', href: '#solucoes' },
@@ -922,8 +941,8 @@ function MobileFab() {
 
           <a
             className="mobile-drawer-link"
-            href="/#suporte"
-            onClick={(e) => { e.preventDefault(); close('/#suporte'); }}
+            href="/fale-com-a-gente"
+            onClick={(e) => { e.preventDefault(); close('/fale-com-a-gente'); }}
           >
             Atendimento
           </a>
@@ -981,7 +1000,7 @@ function App() {
       ) : isAboutPage ? (
         <AboutPage />
       ) : servicePage ? (
-        <ServicePage pageData={servicePage} />
+        <ServicePage pageData={servicePage} bgImage={serviceBg[page]} />
       ) : contentPage ? (
         <TransparencyPage pageData={contentPage} />
       ) : (
@@ -1071,15 +1090,8 @@ function Header({ isInternalPage }) {
 
       <div className="header-actions">
         <a
-          href={isInternalPage ? '/#suporte' : '#suporte'}
-          onClick={
-            isInternalPage
-              ? (event) => {
-                  event.preventDefault();
-                  navigateTo('/#suporte');
-                }
-              : undefined
-          }
+          href="/fale-com-a-gente"
+          onClick={(event) => { event.preventDefault(); navigateTo('/fale-com-a-gente'); }}
         >
           Atendimento
         </a>
@@ -1409,7 +1421,7 @@ function HomePage({ formType, selectedForm, setFormType }) {
       <section className="section plans-section" id="planos">
         <div className="section-intro">
           <span className="eyebrow">Ultra Fibra + TV</span>
-          <h2>Planos reais para conectar sua casa e o seu negócio.</h2>
+          <h2>Soluções certas para cada necessidade da sua vida.</h2>
           <p>
             Internet na fibra de 700 Mb, entretenimento com TV e uma opção com propaganda no canal
             próprio do Ultra Bank para ampliar a visibilidade da sua empresa.
@@ -1712,12 +1724,13 @@ function TransparencyPage({ pageData }) {
   );
 }
 
-function ServicePage({ pageData }) {
+function ServicePage({ pageData, bgImage }) {
   const Icon = pageData.icon;
 
   return (
     <main>
       <section className="service-hero">
+        {bgImage && <img className="service-hero-image" src={bgImage} alt="" aria-hidden="true" />}
         <div className="service-hero-content">
           <div className="service-hero-icon">
             <Icon size={36} />

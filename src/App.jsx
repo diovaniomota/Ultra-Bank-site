@@ -520,6 +520,7 @@ const servicePages = {
       { icon: HandCoins, label: 'Disponível para PF e PJ' },
     ],
     cta: 'Abrir minha conta',
+    ctaHref: '/abrir-conta',
     whatsappMsg: 'Olá! Quero abrir minha conta digital no Ultra Bank. Podem me ajudar?',
   },
   'ultra-connect': {
@@ -1725,10 +1726,11 @@ function ServicePage({ pageData }) {
           <h1>{pageData.title}</h1>
           <p>{pageData.subtitle}</p>
           <a
-            href={getWhatsAppUrl(pageData.whatsappMsg)}
-            target="_blank"
-            rel="noreferrer"
+            href={pageData.ctaHref ?? getWhatsAppUrl(pageData.whatsappMsg)}
+            target={pageData.ctaHref ? undefined : '_blank'}
+            rel={pageData.ctaHref ? undefined : 'noreferrer'}
             className="service-hero-cta"
+            onClick={pageData.ctaHref ? (e) => { e.preventDefault(); navigateTo(pageData.ctaHref); } : undefined}
           >
             {pageData.cta}
             <ArrowRight size={18} />

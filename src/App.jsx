@@ -41,13 +41,13 @@ import ultraClubImage from './assets/ultra_club.png';
 import infinitasLogo from './assets/infinitas_possibilidades.png';
 import outdoorLogo from './assets/infinity_banner.png';
 import bgContaDigital from './assets/bg_conta_digital.jpg';
-import bgUltraConnect from './assets/bg_ultra_connect.jpg';
-import bgUltraExperience from './assets/bg_ultra_experience.jpg';
-import bgEnergiaSolar from './assets/bg_energia_solar.jpg';
-import bgConsorcio from './assets/bg_consorcio.jpg';
-import bgSimMovel from './assets/bg_sim_movel.jpg';
-import bgUltraClub from './assets/bg_ultra_club.jpg';
-import bgUltraStream from './assets/bg_ultra_stream.jpg';
+import bgUltraConnect from './assets/bg_ultra_connect.png';
+import bgUltraExperience from './assets/bg_ultra_experience.png';
+import bgEnergiaSolar from './assets/bg_energia_solar.png';
+import bgConsorcio from './assets/bg_consorcio.png';
+import bgSimMovel from './assets/bg_sim_movel.png';
+import bgUltraClub from './assets/bg_ultra_club.png';
+import bgUltraStream from './assets/bg_ultra_stream.png';
 
 const serviceBg = {
   'conta-digital': bgContaDigital,

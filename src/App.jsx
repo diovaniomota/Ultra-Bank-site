@@ -82,7 +82,11 @@ const serviceBg = {
 };
 
 const serviceBgPosition = {
-  'conta-digital': 'center 20%',
+  'conta-digital': 'right center',
+};
+
+const serviceBgFit = {
+  'conta-digital': 'contain',
 };
 
 const navItems = [
@@ -1024,7 +1028,12 @@ function App() {
       ) : isAboutPage ? (
         <AboutPage />
       ) : servicePage ? (
-        <ServicePage pageData={servicePage} bgImage={serviceBg[page]} bgPosition={serviceBgPosition[page]} />
+        <ServicePage
+          pageData={servicePage}
+          bgImage={serviceBg[page]}
+          bgPosition={serviceBgPosition[page]}
+          bgFit={serviceBgFit[page]}
+        />
       ) : contentPage ? (
         <TransparencyPage pageData={contentPage} />
       ) : (
@@ -1739,8 +1748,11 @@ function TransparencyPage({ pageData }) {
   );
 }
 
-function ServicePage({ pageData, bgImage, bgPosition }) {
+function ServicePage({ pageData, bgImage, bgPosition, bgFit }) {
   const Icon = pageData.icon;
+  const bgStyle = bgPosition || bgFit
+    ? { ...(bgPosition && { objectPosition: bgPosition }), ...(bgFit && { objectFit: bgFit }) }
+    : undefined;
 
   return (
     <main>
@@ -1751,7 +1763,7 @@ function ServicePage({ pageData, bgImage, bgPosition }) {
             src={bgImage}
             alt=""
             aria-hidden="true"
-            style={bgPosition ? { objectPosition: bgPosition } : undefined}
+            style={bgStyle}
           />
         )}
         <div className="service-hero-content">

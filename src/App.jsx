@@ -49,6 +49,27 @@ import bgSimMovel from './assets/bg_sim_movel.png';
 import bgUltraClub from './assets/bg_ultra_club.png';
 import bgUltraStream from './assets/bg_ultra_stream.png';
 
+function InstagramIcon({ size = 24, ...props }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
+
 const serviceBg = {
   'conta-digital': bgContaDigital,
   'ultra-connect': bgUltraConnect,
@@ -60,23 +81,20 @@ const serviceBg = {
   'ultra-stream': bgUltraStream,
 };
 
+const serviceBgPosition = {
+  'conta-digital': 'center 20%',
+};
+
 const navItems = [
-  { label: 'Soluções', href: '#solucoes' },
-  { label: 'Telecomunicações', href: '#planos' },
+  { label: 'Soluções', href: '#solucoes-ultra' },
   { label: 'Benefícios', href: '#beneficios' },
   { label: 'Contratar', href: '#contratacao' },
-];
-
-const heroHighlights = [
-  { icon: Wifi, label: 'Fibra 700 Mb' },
-  { icon: PlayCircle, label: 'TV 60 canais' },
-  { icon: ShieldCheck, label: 'Conexão estável' },
 ];
 
 const quickLinks = [
   ['Conta digital', Landmark, '/conta-digital'],
   ['Ultra Connect', Wifi, '/ultra-connect'],
-  ['Fibra e TV', Tv, '/ultra-experience'],
+  ['TV na Fibra', Tv, '/ultra-experience'],
   ['Energia Solar', Sun, '/energia-solar'],
   ['Consórcio', Car, '/consorcio'],
   ['SIM Móvel', Smartphone, '/sim-movel'],
@@ -410,6 +428,12 @@ const supportPages = {
         label: 'E-mail',
         value: 'suporte@ultrabankinvestiments.com.br',
         href: 'mailto:suporte@ultrabankinvestiments.com.br',
+      },
+      {
+        icon: InstagramIcon,
+        label: 'Instagram',
+        value: '@_ultrabank',
+        href: 'https://www.instagram.com/_ultrabank?igsh=bDY5amR0eXFncHA3&utm_source=qr',
       },
     ],
     sections: [
@@ -1000,7 +1024,7 @@ function App() {
       ) : isAboutPage ? (
         <AboutPage />
       ) : servicePage ? (
-        <ServicePage pageData={servicePage} bgImage={serviceBg[page]} />
+        <ServicePage pageData={servicePage} bgImage={serviceBg[page]} bgPosition={serviceBgPosition[page]} />
       ) : contentPage ? (
         <TransparencyPage pageData={contentPage} />
       ) : (
@@ -1211,19 +1235,6 @@ function HomePage({ formType, selectedForm, setFormType }) {
             </button>
           </div>
         </div>
-
-        <div className="hero-footer" aria-label="Destaques do Ultra Bank">
-          {heroHighlights.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <span key={item.label}>
-                <Icon size={18} />
-                {item.label}
-              </span>
-            );
-          })}
-        </div>
       </section>
 
       <section className="quick-nav" aria-label="Atalhos de produtos">
@@ -1340,10 +1351,10 @@ function HomePage({ formType, selectedForm, setFormType }) {
         </div>
       </section>
 
-      <section className="section solutions-section">
+      <section className="section solutions-section" id="solucoes-ultra">
         <div className="section-intro compact">
           <span className="eyebrow">Soluções Ultra</span>
-          <h2>Produtos organizados pelo que o cliente quer resolver.</h2>
+          <h2>Mais do que serviços. Experiências completas.</h2>
         </div>
 
         <div className="solutions-grid">
@@ -1421,10 +1432,10 @@ function HomePage({ formType, selectedForm, setFormType }) {
       <section className="section plans-section" id="planos">
         <div className="section-intro">
           <span className="eyebrow">Ultra Fibra + TV</span>
-          <h2>Soluções certas para cada necessidade da sua vida.</h2>
+          <h2>Conectividade e entretenimento em um só lugar.</h2>
           <p>
-            Internet na fibra de 700 Mb, entretenimento com TV e uma opção com propaganda no canal
-            próprio do Ultra Bank para ampliar a visibilidade da sua empresa.
+            Navegue com até 700 Mb de internet fibra, aproveite uma programação completa de TV e
+            descubra soluções que mantêm você sempre conectado com a qualidade Ultra.
           </p>
         </div>
 
@@ -1468,7 +1479,11 @@ function HomePage({ formType, selectedForm, setFormType }) {
       <section className="section benefits-section" id="beneficios">
         <div className="section-intro compact">
           <span className="eyebrow">Benefícios e planejamento</span>
-          <h2>Mais motivos para manter tudo dentro do Ultra Bank.</h2>
+          <h2>Planeje seu futuro. Aproveite cada conquista.</h2>
+          <p>
+            Do consórcio aos benefícios exclusivos do Ultra Club, encontre soluções para realizar
+            objetivos, acumular vantagens e aproveitar uma experiência completa em um só lugar.
+          </p>
         </div>
 
         <div className="benefit-grid">
@@ -1507,10 +1522,10 @@ function HomePage({ formType, selectedForm, setFormType }) {
       <section className="section contract-section" id="contratacao">
         <div className="contract-copy">
           <span className="eyebrow">Contratação online</span>
-          <h2>Escolha o serviço e o Ultra Bank continua o atendimento.</h2>
+          <h2>Seu próximo passo começa agora.</h2>
           <p>
-            Envie seus dados iniciais para abertura de conta, fibra + TV, energia solar, consórcio
-            ou consulta de cobertura.
+            Abra sua conta, contrate internet, energia solar, consórcio ou outros serviços com
+            atendimento digital rápido e seguro.
           </p>
           <div className="contract-checks">
             <span>
@@ -1724,13 +1739,21 @@ function TransparencyPage({ pageData }) {
   );
 }
 
-function ServicePage({ pageData, bgImage }) {
+function ServicePage({ pageData, bgImage, bgPosition }) {
   const Icon = pageData.icon;
 
   return (
     <main>
       <section className="service-hero">
-        {bgImage && <img className="service-hero-image" src={bgImage} alt="" aria-hidden="true" />}
+        {bgImage && (
+          <img
+            className="service-hero-image"
+            src={bgImage}
+            alt=""
+            aria-hidden="true"
+            style={bgPosition ? { objectPosition: bgPosition } : undefined}
+          />
+        )}
         <div className="service-hero-content">
           <div className="service-hero-icon">
             <Icon size={36} />

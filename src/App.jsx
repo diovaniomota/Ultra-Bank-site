@@ -85,7 +85,9 @@ const serviceBgPosition = {
   'conta-digital': 'center center',
 };
 
-const serviceBgFit = {};
+const serviceBgFit = {
+  'conta-digital': 'contain',
+};
 
 const navItems = [
   { label: 'Soluções', href: '#solucoes-ultra' },

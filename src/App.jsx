@@ -82,12 +82,10 @@ const serviceBg = {
 };
 
 const serviceBgPosition = {
-  'conta-digital': 'right center',
+  'conta-digital': 'center center',
 };
 
-const serviceBgFit = {
-  'conta-digital': 'contain',
-};
+const serviceBgFit = {};
 
 const navItems = [
   { label: 'Soluções', href: '#solucoes-ultra' },

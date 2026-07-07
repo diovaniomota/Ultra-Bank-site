@@ -2008,9 +2008,9 @@ footer {
 .service-hero {
   background: var(--navy);
   color: var(--white);
-  min-height: 554px;
+  min-height: 520px;
   overflow: hidden;
-  padding: 60px max(24px, calc((100vw - 1180px) / 2));
+  padding: 96px max(24px, calc((100vw - 1180px) / 2));
   position: relative;
 }
 
@@ -2029,7 +2029,7 @@ footer {
   height: 100%;
   inset: 0;
   object-fit: cover;
-  object-position: center;
+  object-position: 65% center;
   position: absolute;
   width: 100%;
   z-index: 0;

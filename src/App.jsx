@@ -82,7 +82,7 @@ const serviceBg = {
 };
 
 const serviceBgPosition = {
-  'conta-digital': 'center center',
+  'conta-digital': 'right center',
 };
 
 const serviceBgFit = {
@@ -569,7 +569,6 @@ const servicePages = {
     cta: 'Abrir minha conta',
     ctaHref: '/abrir-conta',
     whatsappMsg: 'Olá! Quero abrir minha conta digital no Ultra Bank. Podem me ajudar?',
-    heroBanner: true,
   },
   'ultra-connect': {
     icon: Wifi,
@@ -1757,41 +1756,35 @@ function ServicePage({ pageData, bgImage, bgPosition, bgFit }) {
 
   return (
     <main>
-      {pageData.heroBanner && bgImage ? (
-        <div className="service-banner-full">
-          <img src={bgImage} alt={pageData.eyebrow} />
-        </div>
-      ) : (
-        <section className="service-hero">
-          {bgImage && (
-            <img
-              className="service-hero-image"
-              src={bgImage}
-              alt=""
-              aria-hidden="true"
-              style={bgStyle}
-            />
-          )}
-          <div className="service-hero-content">
-            <div className="service-hero-icon">
-              <Icon size={36} />
-            </div>
-            <span className="eyebrow">{pageData.eyebrow}</span>
-            <h1>{pageData.title}</h1>
-            <p>{pageData.subtitle}</p>
-            <a
-              href={pageData.ctaHref ?? getWhatsAppUrl(pageData.whatsappMsg)}
-              target={pageData.ctaHref ? undefined : '_blank'}
-              rel={pageData.ctaHref ? undefined : 'noreferrer'}
-              className="service-hero-cta"
-              onClick={pageData.ctaHref ? (e) => { e.preventDefault(); navigateTo(pageData.ctaHref); } : undefined}
-            >
-              {pageData.cta}
-              <ArrowRight size={18} />
-            </a>
+      <section className="service-hero">
+        {bgImage && (
+          <img
+            className="service-hero-image"
+            src={bgImage}
+            alt=""
+            aria-hidden="true"
+            style={bgStyle}
+          />
+        )}
+        <div className="service-hero-content">
+          <div className="service-hero-icon">
+            <Icon size={36} />
           </div>
-        </section>
-      )}
+          <span className="eyebrow">{pageData.eyebrow}</span>
+          <h1>{pageData.title}</h1>
+          <p>{pageData.subtitle}</p>
+          <a
+            href={pageData.ctaHref ?? getWhatsAppUrl(pageData.whatsappMsg)}
+            target={pageData.ctaHref ? undefined : '_blank'}
+            rel={pageData.ctaHref ? undefined : 'noreferrer'}
+            className="service-hero-cta"
+            onClick={pageData.ctaHref ? (e) => { e.preventDefault(); navigateTo(pageData.ctaHref); } : undefined}
+          >
+            {pageData.cta}
+            <ArrowRight size={18} />
+          </a>
+        </div>
+      </section>
 
       <section className="section service-features-section">
         <div className="section-intro compact">

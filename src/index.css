@@ -1994,6 +1994,17 @@ footer {
 
 /* ─── Service Page ───────────────────────────────────────────────────────────── */
 
+.service-banner-full {
+  line-height: 0;
+  width: 100%;
+}
+
+.service-banner-full img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
 .service-hero {
   background: var(--navy);
   color: var(--white);

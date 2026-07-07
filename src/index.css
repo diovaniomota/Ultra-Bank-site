@@ -2005,6 +2005,18 @@ footer {
   width: 100%;
 }
 
+.service-hero-banner {
+  background: var(--navy);
+  display: block;
+  line-height: 0;
+}
+
+.service-hero-banner img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
 .service-hero {
   background: var(--navy);
   color: var(--white);
@@ -2017,7 +2029,7 @@ footer {
 .service-hero::before {
   background:
     linear-gradient(90deg, rgba(8, 23, 44, 0.95) 0%, rgba(8, 23, 44, 0.82) 45%, rgba(8, 23, 44, 0.35) 72%, rgba(8, 23, 44, 0.65) 100%),
-    linear-gradient(180deg, rgba(8, 23, 44, 0.2) 0%, rgba(8, 23, 44, 0.85) 100%);
+    linear-gradient(180deg, #08172c 0%, rgba(8, 23, 44, 0.15) 12%, rgba(8, 23, 44, 0.3) 88%, #08172c 100%);
   content: '';
   inset: 0;
   pointer-events: none;

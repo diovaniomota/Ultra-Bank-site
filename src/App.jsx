@@ -40,7 +40,7 @@ import consorcioImage from './assets/consorcio.png';
 import ultraClubImage from './assets/ultra_club.png';
 import infinitasLogo from './assets/infinitas_possibilidades.png';
 import outdoorLogo from './assets/infinity_banner.png';
-import bgContaDigital from './assets/bg_conta_digital.jpg';
+import bgContaDigital from './assets/bg_conta_digital.png';
 import bgUltraConnect from './assets/bg_ultra_connect.png';
 import bgUltraExperience from './assets/bg_ultra_experience.png';
 import bgEnergiaSolar from './assets/bg_energia_solar.png';
@@ -79,14 +79,6 @@ const serviceBg = {
   'sim-movel': bgSimMovel,
   'ultra-club': bgUltraClub,
   'ultra-stream': bgUltraStream,
-};
-
-const serviceBgPosition = {
-  'conta-digital': 'right center',
-};
-
-const serviceBgFit = {
-  'conta-digital': 'contain',
 };
 
 const navItems = [
@@ -553,6 +545,7 @@ const supportPages = {
 const servicePages = {
   'conta-digital': {
     icon: Landmark,
+    heroVariant: 'banner',
     eyebrow: 'Conta Digital',
     title: 'Sua vida financeira em um só lugar.',
     subtitle:
@@ -1031,8 +1024,6 @@ function App() {
         <ServicePage
           pageData={servicePage}
           bgImage={serviceBg[page]}
-          bgPosition={serviceBgPosition[page]}
-          bgFit={serviceBgFit[page]}
         />
       ) : contentPage ? (
         <TransparencyPage pageData={contentPage} />
@@ -1748,43 +1739,51 @@ function TransparencyPage({ pageData }) {
   );
 }
 
-function ServicePage({ pageData, bgImage, bgPosition, bgFit }) {
+function ServicePage({ pageData, bgImage }) {
   const Icon = pageData.icon;
-  const bgStyle = bgPosition || bgFit
-    ? { ...(bgPosition && { objectPosition: bgPosition }), ...(bgFit && { objectFit: bgFit }) }
-    : undefined;
 
   return (
     <main>
-      <section className="service-hero">
-        {bgImage && (
-          <img
-            className="service-hero-image"
-            src={bgImage}
-            alt=""
-            aria-hidden="true"
-            style={bgStyle}
-          />
-        )}
-        <div className="service-hero-content">
-          <div className="service-hero-icon">
-            <Icon size={36} />
+      {pageData.heroVariant === 'banner' ? (
+        <a
+          className="service-hero-banner"
+          href={pageData.ctaHref ?? getWhatsAppUrl(pageData.whatsappMsg)}
+          target={pageData.ctaHref ? undefined : '_blank'}
+          rel={pageData.ctaHref ? undefined : 'noreferrer'}
+          onClick={pageData.ctaHref ? (e) => { e.preventDefault(); navigateTo(pageData.ctaHref); } : undefined}
+        >
+          <img src={bgImage} alt={pageData.title} />
+        </a>
+      ) : (
+        <section className="service-hero">
+          {bgImage && (
+            <img
+              className="service-hero-image"
+              src={bgImage}
+              alt=""
+              aria-hidden="true"
+            />
+          )}
+          <div className="service-hero-content">
+            <div className="service-hero-icon">
+              <Icon size={36} />
+            </div>
+            <span className="eyebrow">{pageData.eyebrow}</span>
+            <h1>{pageData.title}</h1>
+            <p>{pageData.subtitle}</p>
+            <a
+              href={pageData.ctaHref ?? getWhatsAppUrl(pageData.whatsappMsg)}
+              target={pageData.ctaHref ? undefined : '_blank'}
+              rel={pageData.ctaHref ? undefined : 'noreferrer'}
+              className="service-hero-cta"
+              onClick={pageData.ctaHref ? (e) => { e.preventDefault(); navigateTo(pageData.ctaHref); } : undefined}
+            >
+              {pageData.cta}
+              <ArrowRight size={18} />
+            </a>
           </div>
-          <span className="eyebrow">{pageData.eyebrow}</span>
-          <h1>{pageData.title}</h1>
-          <p>{pageData.subtitle}</p>
-          <a
-            href={pageData.ctaHref ?? getWhatsAppUrl(pageData.whatsappMsg)}
-            target={pageData.ctaHref ? undefined : '_blank'}
-            rel={pageData.ctaHref ? undefined : 'noreferrer'}
-            className="service-hero-cta"
-            onClick={pageData.ctaHref ? (e) => { e.preventDefault(); navigateTo(pageData.ctaHref); } : undefined}
-          >
-            {pageData.cta}
-            <ArrowRight size={18} />
-          </a>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="section service-features-section">
         <div className="section-intro compact">

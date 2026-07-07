@@ -1997,9 +1997,9 @@ footer {
 .service-hero {
   background: var(--navy);
   color: var(--white);
-  min-height: 520px;
+  min-height: 554px;
   overflow: hidden;
-  padding: 96px max(24px, calc((100vw - 1180px) / 2));
+  padding: 60px max(24px, calc((100vw - 1180px) / 2));
   position: relative;
 }
 
